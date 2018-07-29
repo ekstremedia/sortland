@@ -1,0 +1,8 @@
+<div *ngIf="posts">
+  <div *ngFor="let post of posts">
+    <h3 class="">{{post.title}}</h3>
+    <blockquote class="blockquote">
+      {{ post.body }}
+    </blockquote>
+  </div>
+</div>

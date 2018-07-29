@@ -1,3 +1,4 @@
+import { PostsComponent } from './../pages/posts/posts.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
@@ -7,7 +8,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from '../pages/welcome/welcome.component';
 
 const appRoutes: Routes = [
-  { path: 'welcome', component: WelcomeComponent }
+  { path: '', component: WelcomeComponent },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'posts', component: PostsComponent }
 ];
 
 

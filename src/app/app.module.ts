@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { AppRoutingModule } from './/app-routing.module';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from './pages/posts/posts.component';
 
 // from https://angular.io/guide/router
 
@@ -12,9 +13,11 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    PostsComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     UiModule,
     AppRoutingModule
