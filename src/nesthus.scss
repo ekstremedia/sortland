@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.bt { font-weight: bold;}
+.tb { font-weight: bold;}
+
+.masonry-item { width: 260px; }
+.flickImgBox {
+     min-height: 159px; 
+     img {
+        border: 1px solid rgba($color: #ccc, $alpha: 0.3);
+     }
+     img:hover {
+        border: 1px solid rgba($color: blue, $alpha: 1);
+     }
+ }

@@ -4,8 +4,13 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { AppRoutingModule } from './/app-routing.module';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { PostsComponent } from './pages/posts/posts.component';
+import { GalleriesComponent } from './photo/galleries/galleries.component';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { FeedComponent } from './photo/feed/feed.component';
+import { SetComponent } from './photo/set/set.component';
+import { PhotoComponent } from './photo/photo/photo.component';
 
 // from https://angular.io/guide/router
 
@@ -14,13 +19,19 @@ import { PostsComponent } from './pages/posts/posts.component';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PostsComponent
+    PostsComponent,
+    GalleriesComponent,
+    FeedComponent,
+    SetComponent,
+    PhotoComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    HttpClientJsonpModule,
     UiModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxMasonryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

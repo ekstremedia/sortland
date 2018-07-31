@@ -1,0 +1,78 @@
+<div *ngIf="!photo">
+  <h1>Lastar bilete</h1>
+</div>
+
+<div *ngIf="photo && photo_url">
+  <h2>{{ photo.title._content }}</h2>
+  <span *ngIf="photo.description._content">
+    {{ photo.description._content }}
+    <br>
+  </span>
+  <span *ngIf="photo.views">
+    Sett {{ photo.views }} ganger.
+  </span>
+  <span *ngIf="photo.urls.url[0]._content">
+    <a [href]="photo.urls.url[0]._content" target="_blank">Se på Flickr</a>.
+  </span>
+
+  <br>
+
+  <span *ngFor="let tag of photo.tags.tag">
+    {{ tag._content }}
+  </span>
+  <br>
+  <div *ngIf="photo.location">
+    Lat: {{ photo.location.latitude }} Lon: {{ photo.location.longitude }}
+    <span *ngIf="photo.location.country">Land: {{ photo.location.country._content }}, </span>
+    <span *ngIf="photo.location.region">Region: {{ photo.location.region._content }}, </span>
+    <span *ngIf="photo.location.county">Sted: {{ photo.location.county._content }}.</span>
+  </div>
+  <div *ngIf="photo.usage.candownload">
+    Bildet er nedlastbart
+  </div>
+  <div *ngIf="photo.dates">
+    Tatt: {{ photo.dates.taken | date }}, Opplastet: {{ photo.dates.posted * 1000 | date }}, Sist oppdatert: {{ photo.dates.lastupdate
+    * 1000 | date }}
+  </div>
+
+  <div>
+    Lisens: 
+    <span *ngIf="photo.license==1">
+      <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+        Attribution-NonCommercial-ShareAlike
+      </a>
+    </span> 
+    <span *ngIf="photo.license==9">
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">
+        Public Domain Dedication (CC0)
+      </a>
+    </span> 
+    <span *ngIf="photo.license==10">
+      <a href="https://creativecommons.org/publicdomain/mark/1.0/" target="_blank">
+        Public Domain Mark 1.0
+      </a>
+    </span> 
+    <span *ngIf="photo.license==0">
+        All Rights Reserved
+    </span> 
+
+
+    ({{photo.license}})
+  </div>
+
+  <div *ngIf="comments">
+    Kommentarer ({{comments.length}}):
+    <div *ngFor="let comment of comments">
+      {{ comment.authorname }}
+      <br>
+      <span class="text-muted">{{ comment.datecreate * 1000 | date }}</span>
+      <br> 
+      <span [innerHTML]="comment._content"></span>
+    </div>
+  </div>
+
+  <div>
+    Foto: {{ photo.owner.realname }}
+  </div>
+  <img [src]="photo_url" class="img-fluid">
+</div>

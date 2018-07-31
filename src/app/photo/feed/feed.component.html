@@ -1,0 +1,24 @@
+<div *ngIf="flickrFeed">
+
+    <ngx-masonry>
+      <ngxMasonryItem class="masonry-item" *ngFor="let image of flickrFeed">
+          <a routerLink="/photo/{{idof(image.link)}}">
+          <span class="bt">{{ image.title }}</span>
+        </a>
+        <br> {{image.date_taken | date }}
+
+        <br>
+        <div class="flickImgBox">
+            <a routerLink="/photo/{{idof(image.link)}}">
+          <img [src]="image.media.m" [alt]="image.title" [title]="image.title">
+        </a>
+      </div>
+        <br>
+  
+        <!-- <div [innerHTML]="image.description"></div> -->
+      </ngxMasonryItem>
+    </ngx-masonry>
+
+  
+  
+  </div>
