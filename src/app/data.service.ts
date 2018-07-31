@@ -68,4 +68,12 @@ export class DataService {
       data => data
     );
   }
+  getPhotoExif(setId) {
+    // const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=8013632754e388f1c44febeea33afa2d&photoset_id='+ setId +'&user_id=93161966%40N04&extras=url_o%2Curl_s%2Curl_sq%2Cdate_taken&format=json&nojsoncallback=1&auth_token=72157693865132550-c00dad37f918e68d&api_sig=ad5e9913499c842c36d8b7ad3e5f81eb';
+    const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photos.getExif&api_key=2a84f1619720ca7d89fbb6883e17c844&photo_id='+ setId +'&format=json&nojsoncallback=1';
+    console.log('seturl: ', seturl, 'setid: ', setId);
+    return this.http.get(seturl).pipe(
+      data => data
+    );
+  }
 }

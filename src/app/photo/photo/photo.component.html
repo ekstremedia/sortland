@@ -8,6 +8,50 @@
     {{ photo.description._content }}
     <br>
   </span>
+
+
+
+  <div *ngIf="exif" class="tb">
+    Exif:
+    <div *ngIf="camera">
+      Camera: {{camera}}
+    </div>
+    <div *ngIf="lens">
+        lens: {{lens}}
+      </div>
+    <div *ngIf="aperture">
+      Aperture: {{aperture}}
+    </div>
+    <div *ngIf="focal">
+      Focal length: {{focal}}
+    </div>
+    <div *ngIf="shutter">
+      shutter: {{shutter}}s
+    </div>
+    <div *ngIf="program">
+      program: {{program}}
+    </div>
+    <div *ngIf="iso">
+      ISO: {{iso}}
+    </div>
+    <div *ngIf="metering">
+      Metering: {{metering}}
+    </div>
+    <div *ngIf="mode">
+      mode: {{mode}}
+    </div>
+    <div *ngIf="wb">
+      wb: {{ wb }}
+    </div>
+    <div *ngIf="expbias">
+      expbias: {{ expbias }}
+    </div>
+
+  </div>
+
+
+
+
   <span *ngIf="photo.views">
     Sett {{ photo.views }} ganger.
   </span>
@@ -36,25 +80,25 @@
   </div>
 
   <div>
-    Lisens: 
+    Lisens:
     <span *ngIf="photo.license==1">
       <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
         Attribution-NonCommercial-ShareAlike
       </a>
-    </span> 
+    </span>
     <span *ngIf="photo.license==9">
       <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">
         Public Domain Dedication (CC0)
       </a>
-    </span> 
+    </span>
     <span *ngIf="photo.license==10">
       <a href="https://creativecommons.org/publicdomain/mark/1.0/" target="_blank">
         Public Domain Mark 1.0
       </a>
-    </span> 
+    </span>
     <span *ngIf="photo.license==0">
-        All Rights Reserved
-    </span> 
+      All Rights Reserved
+    </span>
 
 
     ({{photo.license}})
@@ -66,7 +110,7 @@
       {{ comment.authorname }}
       <br>
       <span class="text-muted">{{ comment.datecreate * 1000 | date }}</span>
-      <br> 
+      <br>
       <span [innerHTML]="comment._content"></span>
     </div>
   </div>
@@ -74,5 +118,7 @@
   <div>
     Foto: {{ photo.owner.realname }}
   </div>
+
+
   <img [src]="photo_url" class="img-fluid">
 </div>
