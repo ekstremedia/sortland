@@ -3,122 +3,249 @@
 </div>
 
 <div *ngIf="photo && photo_url">
-  <h2>{{ photo.title._content }}</h2>
-  <span *ngIf="photo.description._content">
-    {{ photo.description._content }}
-    <br>
-  </span>
 
-
-
-  <div *ngIf="exif" class="tb">
-    Exif:
-    <div *ngIf="camera">
-      Camera: {{camera}}
-    </div>
-    <div *ngIf="lens">
-        lens: {{lens}}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-8 mx-auto p-3">
+        <img [src]="photo_url" class="img-fluid photo">
       </div>
-    <div *ngIf="aperture">
-      Aperture: {{aperture}}
-    </div>
-    <div *ngIf="focal">
-      Focal length: {{focal}}
-    </div>
-    <div *ngIf="shutter">
-      shutter: {{shutter}}s
-    </div>
-    <div *ngIf="program">
-      program: {{program}}
-    </div>
-    <div *ngIf="iso">
-      ISO: {{iso}}
-    </div>
-    <div *ngIf="metering">
-      Metering: {{metering}}
-    </div>
-    <div *ngIf="mode">
-      mode: {{mode}}
-    </div>
-    <div *ngIf="wb">
-      wb: {{ wb }}
-    </div>
-    <div *ngIf="expbias">
-      expbias: {{ expbias }}
-    </div>
+      <div class="col-4 pt-3">
 
+        <div class="row">
+          <div class="col-12 text-center text-title">
+            <h5>{{ photo.title._content }}</h5>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="photo.description._content">
+          <div class="col-12 text-center text-muted p-3">
+            {{ photo.description._content }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center text-muted">
+            <h6 *ngIf="photo.views">
+              <span class="text-lighter">{{ photo.views }} </span> visninger
+            </h6>
+          </div>
+        </div>
+
+        <!-- Exif start -->
+        <div *ngIf="exif">
+
+          <div class="row" *ngIf="photo.dates ">
+            <div class="col-4 text-right exif-left">
+              Dato tatt:
+            </div>
+            <div class="col-7 exif-right">
+              {{ photo.dates.taken | date }} {{ photo.dates.taken | date:'HH:mm:ss' }}
+            </div>
+          </div>
+
+
+          <div class="row" *ngIf="camera">
+            <div class="col-4 text-right exif-left">
+              Camera:
+            </div>
+            <div class="col-7 exif-right">
+              {{camera}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="lens">
+            <div class="col-4 text-right exif-left">
+              Lens:
+            </div>
+            <div class="col-7 exif-right">
+              {{lens}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="iso">
+            <div class="col-4 text-right exif-left">
+              ISO:
+            </div>
+            <div class="col-7 exif-right">
+              {{iso}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="aperture">
+            <div class="col-4 text-right exif-left">
+              Aperture:
+            </div>
+            <div class="col-7 exif-right">
+              {{aperture}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="focal">
+            <div class="col-4 text-right exif-left">
+              Focal length:
+            </div>
+            <div class="col-7 exif-right">
+              {{focal}}
+            </div>
+          </div>
+
+
+          <div class="row" *ngIf="shutter">
+            <div class="col-4 text-right exif-left">
+              Shutterspeed:
+            </div>
+            <div class="col-7 exif-right">
+              {{shutter}} {{time}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="mode">
+            <div class="col-4 text-right exif-left">
+              Mode:
+            </div>
+            <div class="col-7 exif-right">
+              {{mode}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="wb">
+            <div class="col-4 text-right exif-left">
+              White balance:
+            </div>
+            <div class="col-7 exif-right">
+              {{wb}}
+            </div>
+          </div>
+
+          <div class="row" *ngIf="photo.license">
+            <div class="col-4 text-right exif-left">
+              Lisens:
+            </div>
+            <div class="col-7 exif-right">
+              <span *ngIf="photo.license==1">
+                <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+                  Attribution-NonCommercial-ShareAlike
+                </a>
+              </span>
+              <span *ngIf="photo.license==9">
+                <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">
+                  Public Domain Dedication (CC0)
+                </a>
+              </span>
+              <span *ngIf="photo.license==10">
+                <a href="https://creativecommons.org/publicdomain/mark/1.0/" target="_blank">
+                  Public Domain Mark 1.0
+                </a>
+              </span>
+              <span *ngIf="photo.license==0">
+                All Rights Reserved
+              </span>
+            </div>
+          </div>
+
+        </div>
+        <!-- end of exif -->
+
+        <!-- context start -->
+        <div *ngIf="context">
+          <div *ngIf="context.set">
+            <div class="row">
+              <div class="col-4 text-right exif-left">
+                Tilhører sett:
+              </div>
+              <div class="col-7 exif-right">
+                <span *ngFor="let set of context.set; let last = last">
+
+                  <a routerLink="/photos/set/{{set.id}}" 
+                  class="mr-1 badge badge-primary">
+                    {{ set.title }}
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="context.pool">
+            <div class="col-4 text-right exif-left">
+              Grupper:
+            </div>
+            <div class="col-7 exif-right">
+              <span *ngFor="let pool of context.pool; let last = last">
+                <a href="https://www.flickr.com{{pool.url}}" class="mr-1 badge badge-dark">
+                  {{ pool.title }}
+                </a>
+
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="photo.tags.tag">
+          <div class="col-4 text-right exif-left">
+            Tags:
+          </div>
+          <div class="col-7 exif-right">
+            <span *ngFor="let tag of photo.tags.tag">
+              <span class="badge badge-dark text-secondary pl-2 pr-2 pt-1 pb-1 mr-1">
+                {{ tag._content }}
+              </span>
+            </span>
+          </div>
+        </div>
+        <!-- context end -->
+        <hr>
+        <div class="row">
+          <div class="col-12 text-center">
+            <span *ngIf="photo.urls.url[0]._content">
+              Sjå bilete
+              <a [href]="photo.urls.url[0]._content" target="_blank">
+                på Flickr</a>.
+            </span>
+          </div>
+        </div>
+
+
+
+
+
+        <!-- Begin tags -->
+
+        <!-- end tags -->
+
+        <div *ngIf="photo.location">
+          Lat: {{ photo.location.latitude }} Lon: {{ photo.location.longitude }}
+          <span *ngIf="photo.location.country">Land: {{ photo.location.country._content }}, </span>
+          <span *ngIf="photo.location.region">Region: {{ photo.location.region._content }}, </span>
+          <span *ngIf="photo.location.county">Sted: {{ photo.location.county._content }}.</span>
+        </div>
+        <div *ngIf="photo.usage.candownload">
+          Bildet er nedlastbart
+        </div>
+
+
+
+
+
+        <div>
+          Foto: {{ photo.owner.realname }}
+        </div>
+        <!-- end of exif -->
+      </div>
+
+    </div>
   </div>
 
 
-
-
-  <span *ngIf="photo.views">
-    Sett {{ photo.views }} ganger.
-  </span>
-  <span *ngIf="photo.urls.url[0]._content">
-    <a [href]="photo.urls.url[0]._content" target="_blank">Se på Flickr</a>.
-  </span>
-
-  <br>
-
-  <span *ngFor="let tag of photo.tags.tag">
-    {{ tag._content }}
-  </span>
-  <br>
-  <div *ngIf="photo.location">
-    Lat: {{ photo.location.latitude }} Lon: {{ photo.location.longitude }}
-    <span *ngIf="photo.location.country">Land: {{ photo.location.country._content }}, </span>
-    <span *ngIf="photo.location.region">Region: {{ photo.location.region._content }}, </span>
-    <span *ngIf="photo.location.county">Sted: {{ photo.location.county._content }}.</span>
-  </div>
-  <div *ngIf="photo.usage.candownload">
-    Bildet er nedlastbart
-  </div>
-  <div *ngIf="photo.dates">
-    Tatt: {{ photo.dates.taken | date }}, Opplastet: {{ photo.dates.posted * 1000 | date }}, Sist oppdatert: {{ photo.dates.lastupdate
-    * 1000 | date }}
-  </div>
-
-  <div>
-    Lisens:
-    <span *ngIf="photo.license==1">
-      <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
-        Attribution-NonCommercial-ShareAlike
-      </a>
-    </span>
-    <span *ngIf="photo.license==9">
-      <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">
-        Public Domain Dedication (CC0)
-      </a>
-    </span>
-    <span *ngIf="photo.license==10">
-      <a href="https://creativecommons.org/publicdomain/mark/1.0/" target="_blank">
-        Public Domain Mark 1.0
-      </a>
-    </span>
-    <span *ngIf="photo.license==0">
-      All Rights Reserved
-    </span>
-
-
-    ({{photo.license}})
-  </div>
-
-  <div *ngIf="comments">
-    Kommentarer ({{comments.length}}):
-    <div *ngFor="let comment of comments">
-      {{ comment.authorname }}
-      <br>
-      <span class="text-muted">{{ comment.datecreate * 1000 | date }}</span>
-      <br>
-      <span [innerHTML]="comment._content"></span>
+  <div class="container" *ngIf="comments">
+    <div class="row">
+      <div class="col-12">
+        Kommentarer ({{comments.length}}):
+        <div *ngFor="let comment of comments">
+          {{ comment.authorname }}
+          <br>
+          <span class="text-muted">{{ comment.datecreate * 1000 | date }}</span>
+          <br>
+          <span [innerHTML]="comment._content"></span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div>
-    Foto: {{ photo.owner.realname }}
-  </div>
-
-
-  <img [src]="photo_url" class="img-fluid">
 </div>

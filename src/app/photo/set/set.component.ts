@@ -19,7 +19,7 @@ export class SetComponent implements OnInit {
   getSetImages(setId) {
     this.data.getFlickrSetPhotos(setId.id).subscribe(
       data => {
-        this.set = data.photoset;
+        this.set = data['photoset'];
           console.log('set: ', this.set);
         }
     );

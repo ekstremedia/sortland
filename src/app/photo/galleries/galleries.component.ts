@@ -20,8 +20,8 @@ export class GalleriesComponent implements OnInit {
   getSets() {
     this.data.getFlickrSets().subscribe(
       data => {
-        if (data.photosets.photoset) {
-          this.flickrSet = data.photosets.photoset;
+        if (data['photosets']['photoset']) {
+          this.flickrSet = data['photosets']['photoset'];
           console.log(this.flickrSet);
         }
       }
