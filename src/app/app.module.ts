@@ -11,6 +11,8 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { FeedComponent } from './photo/feed/feed.component';
 import { SetComponent } from './photo/set/set.component';
 import { PhotoComponent } from './photo/photo/photo.component';
+import { SearchComponent } from './photo/search/search.component';
+import { FormsModule } from '@angular/forms';
 
 // from https://angular.io/guide/router
 
@@ -23,7 +25,8 @@ import { PhotoComponent } from './photo/photo/photo.component';
     GalleriesComponent,
     FeedComponent,
     SetComponent,
-    PhotoComponent
+    PhotoComponent,
+    SearchComponent
   ],
   imports: [
     HttpClientModule,
@@ -31,7 +34,8 @@ import { PhotoComponent } from './photo/photo/photo.component';
     HttpClientJsonpModule,
     UiModule,
     AppRoutingModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

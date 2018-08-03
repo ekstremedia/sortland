@@ -66,7 +66,7 @@ export class PhotoComponent implements OnInit {
       }
     );
   }
-  replaceAll(find, replace,str) { var re = new RegExp(find, 'g'); str = str.replace(re, replace); return str; }
+  replaceAll(find, replace, str) { const re = new RegExp(find, 'g'); str = str.replace(re, replace); return str; }
   getExif(photoId) {
     this.data.getPhotoExif(photoId.id).subscribe(
       data => {

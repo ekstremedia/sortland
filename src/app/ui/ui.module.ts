@@ -10,6 +10,7 @@ import { GalleriesComponent } from '../photo/galleries/galleries.component';
 import { FeedComponent } from '../photo/feed/feed.component';
 import { SetComponent } from '../photo/set/set.component';
 import { PhotoComponent } from '../photo/photo/photo.component';
+import { SearchComponent } from '../photo/search/search.component';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'photos/feed', component: FeedComponent },
   { path: 'photos/set/:id', component: SetComponent },
   { path: 'photo/:id', component: PhotoComponent },
+  { path: 'photos/search', component: SearchComponent },
 
 ];
 

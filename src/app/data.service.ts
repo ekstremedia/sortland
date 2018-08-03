@@ -90,6 +90,17 @@ export class DataService {
       data => data
     );
   }
+  flickrSearch(searchText) {
+    // const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key='+this.flickr_api+'&photoset_id='+ setId +'&user_id=93161966%40N04&extras=url_o%2Curl_s%2Curl_sq%2Cdate_taken&format=json&nojsoncallback=1&auth_token=72157693865132550-c00dad37f918e68d&api_sig=ad5e9913499c842c36d8b7ad3e5f81eb';
+    const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + this.flickr_api + '&user_id=93161966%40N04&text=' + searchText + '&extras=url_o%2Curl_s%2Curl_sq%2Cdate_taken%2C+path_alias&format=json&nojsoncallback=1';
+    console.log('searchtext: ', searchText);
+    return this.http.get(seturl).pipe(
+      data => data
+    );
+  }
+
+
+
 
   /// FLICKR END
 

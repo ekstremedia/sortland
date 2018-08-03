@@ -142,6 +142,7 @@
             </div>
           </div>
 
+
         </div>
         <!-- end of exif -->
 
@@ -155,8 +156,7 @@
               <div class="col-7 exif-right">
                 <span *ngFor="let set of context.set; let last = last">
 
-                  <a routerLink="/photos/set/{{set.id}}" 
-                  class="mr-1 badge badge-primary">
+                  <a routerLink="/photos/set/{{set.id}}" class="mr-1 badge badge-primary">
                     {{ set.title }}
                   </a>
                 </span>
@@ -177,7 +177,11 @@
             </div>
           </div>
         </div>
-        <div class="row" *ngIf="photo.tags.tag && photo.tags.tag>0">
+
+        <!-- context end -->
+
+        <!-- Begin tags -->
+        <div class="row" *ngIf="photo.tags.tag && photo.tags.tag.length>0">
           <div class="col-4 text-right exif-left">
             Tags:
           </div>
@@ -189,7 +193,8 @@
             </span>
           </div>
         </div>
-        <!-- context end -->
+        <!-- end tags -->
+
         <hr>
         <div class="row">
           <div class="col-12 text-center">
@@ -205,9 +210,6 @@
 
 
 
-        <!-- Begin tags -->
-
-        <!-- end tags -->
 
         <div *ngIf="photo.location">
           Lat: {{ photo.location.latitude }} Lon: {{ photo.location.longitude }}

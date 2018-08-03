@@ -23,7 +23,10 @@ body {
     background-color: $darkbg;
     color: $wt;
 }
-
+.hovedcont {
+    min-height: 100vh;
+    height:auto !important;
+}
 .photo {
     border: $photoborder;
 }

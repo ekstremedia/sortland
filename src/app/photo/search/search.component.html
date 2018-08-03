@@ -1,0 +1,57 @@
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <input type="text" (ngModelChange)="doSearch()" [(ngModel)]="soketekst" class="form-control" id="usr">
+
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="form-group">
+        <button class="btn btn-success btn-block" (click)="doSearch()">Søk</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-12">
+
+      <div *ngIf="result && result.photos.total>0">
+       {{soketekst}}: <span class="tb">
+        {{result.photos.total}} </span>treff
+        <ngx-masonry>
+          <ngxMasonryItem class="masonry-item" *ngFor="let image of result.photos.photo">
+
+            <a routerLink="/photo/{{image.id}}">
+              <span class="bt">{{ image.title }}</span>
+            </a>
+            <br>
+            <span *ngIf="image.datetaken">{{ image.datetaken | date }}</span>
+            <span *ngIf="image.views>0">,
+              <span class="tb">{{ image.views }}</span> views</span>
+            <span *ngIf="image.count_comments>0" class="text-success">, {{ image.count_comments }} comments</span>
+            <div class="flickImgBox">
+              <a routerLink="/photo/{{image.id}}">
+                <img [src]="image.url_s" [alt]="image.title" [title]="image.title">
+              </a>
+            </div>
+
+
+          </ngxMasonryItem>
+        </ngx-masonry>
+
+      </div>
+      <div *ngIf="result && result.photos.total==0">
+        Ingen treff på <span class="tb">{{ soketekst }}</span>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
