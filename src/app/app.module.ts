@@ -13,6 +13,7 @@ import { SetComponent } from './photo/set/set.component';
 import { PhotoComponent } from './photo/photo/photo.component';
 import { SearchComponent } from './photo/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { GooglemapsComponent } from './tur/googlemaps/googlemaps.component';
 
 // from https://angular.io/guide/router
 
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     FeedComponent,
     SetComponent,
     PhotoComponent,
-    SearchComponent
+    SearchComponent,
+    GooglemapsComponent
   ],
   imports: [
     HttpClientModule,

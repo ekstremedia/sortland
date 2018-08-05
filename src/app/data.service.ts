@@ -10,6 +10,7 @@ export class DataService {
   flickr_api = 'c55156b848cb72c7e1dcbd12d3bc2e1d';
   flickr_secret = 'f4eb49927de21c1e';
   flickr_id = '93161966@N04';
+  googlemaps_api = 'AIzaSyCTSu-n2GI1dgkesG3O-ofdp5Zk2i3tpTc';
 
   public getPosts() {
     const postUrl = 'https://jsonplaceholder.typicode.com/posts';
@@ -20,7 +21,7 @@ export class DataService {
 
 
 
-    /// FLICKR START
+  /// FLICKR START
   getFlickrFeed() {
     const extras = '&extras=url_o,views,machine_tags,geo';
     const url = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json'

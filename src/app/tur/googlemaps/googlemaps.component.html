@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      Google maps
+      <br>
+      <div class="col-md-3 col-sm-12 col-xs-12">
+        <button (click)="setMapType('terrain')" class="btn btn-primary">Terrain</button>
+        <button (click)="setMapType('satellite')" class="btn btn-danger">Satellite</button>
+        <button (click)="setMapType('roadmap')" class="btn btn-warning">Road Map</button>
+        <button (click)="setVoss()" class="btn btn-warning">Set Voss</button>
+        <button (click)="setMolster()" class="btn btn-warning">Set Mølster</button>
+      </div>
+
+
+      <form class="form-inline" #form="ngForm" (ngSubmit)="setCenter($event)" ac>
+        <div class="form-group">
+          <input type="text" class="form-control" name="latitude" [(ngModel)]="latitude" placeholder="Enter latitude" required>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="longitude" [(ngModel)]="longitude" placeholder="Enter longitude" required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Go</button>
+      </form>
+
+      <div #gmap style="width:100%;height:600px"></div>
+
+      <a href="assets/molsterskitset.kml"> kml </a>
+
+      <div id="capture"></div>
+    </div>
+  </div>
+</div>
