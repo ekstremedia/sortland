@@ -14,6 +14,8 @@ import { PhotoComponent } from './photo/photo/photo.component';
 import { SearchComponent } from './photo/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { GooglemapsComponent } from './tur/googlemaps/googlemaps.component';
+import { AllComponent } from './videos/all/all.component';
+import { VideoComponent } from './video/video/video.component';
 
 // from https://angular.io/guide/router
 
@@ -28,7 +30,9 @@ import { GooglemapsComponent } from './tur/googlemaps/googlemaps.component';
     SetComponent,
     PhotoComponent,
     SearchComponent,
-    GooglemapsComponent
+    GooglemapsComponent,
+    AllComponent,
+    VideoComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div *ngIf="video">
+        <h1>
+            {{ video.title }}
+        </h1>
+        <div *ngIf="video.description" class="text-muted" [innerHTML]="video.description">
+        </div>
+        <img [src]="video.thumbnails.maxres.url" [width]="video.thumbnails.maxres.width" [height]="video.thumbnails.maxres.height">
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        Videos
+      </h1>
+      <div *ngIf="videos">
+
+        <ngx-masonry>
+          <ngxMasonryItem class="masonry-item-yt" *ngFor="let video of videos">
+
+
+            <a routerLink="/video/{{video.id.videoId}}">
+              <img [src]="video.snippet.thumbnails.medium.url" [width]="video.snippet.thumbnails.medium.width" [height]="video.snippet.thumbnails.medium.height">
+              <h6>{{ video.snippet.title }}</h6>
+            </a>
+
+          </ngxMasonryItem>
+        </ngx-masonry>
+
+      </div>
+
+    </div>
+  </div>
+</div>

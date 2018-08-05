@@ -43,7 +43,6 @@ export class GooglemapsComponent implements OnInit {
   setVoss() {
     this.longitude = 6.4021325;
     this.latitude = 60.6257904;
-
     this.map.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
   }
 

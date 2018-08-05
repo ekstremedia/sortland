@@ -11,7 +11,8 @@ export class DataService {
   flickr_secret = 'f4eb49927de21c1e';
   flickr_id = '93161966@N04';
   googlemaps_api = 'AIzaSyCTSu-n2GI1dgkesG3O-ofdp5Zk2i3tpTc';
-
+  youtube_api = 'AIzaSyCtENZ9CfdaIfMwIASW-13ls25ZBQUm7RI';
+  youtube_userid = 'UC4UfvK9wdcZ8HKYfCCb_fWg';
   public getPosts() {
     const postUrl = 'https://jsonplaceholder.typicode.com/posts';
     console.log('getPosts ran');
@@ -19,6 +20,27 @@ export class DataService {
   }
 
 
+
+  // YOUTUBE START
+
+  getLastVideos() {
+    const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.youtube_api + '&channelId=' + this.youtube_userid + '&part=snippet,id&order=date&maxResults=20';
+    console.log('yt-url: ', url);
+    return this.http.get(url).pipe(
+      data => data
+    );
+  }
+  getVideo(id: string) {
+    // console.log(id);
+    const url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id.id + '&key=' + this.youtube_api;
+    // const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.youtube_api + '&channelId=' + this.youtube_userid + '&part=snippet,id&id=' + id;
+    console.log('yt-url: ', url);
+    return this.http.get(url).pipe(
+      data => data
+    );
+  }
+
+  // YOUTUBE END
 
 
   /// FLICKR START

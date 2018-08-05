@@ -1,3 +1,4 @@
+import { AllComponent } from './../videos/all/all.component';
 import { PostsComponent } from './../pages/posts/posts.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { SetComponent } from '../photo/set/set.component';
 import { PhotoComponent } from '../photo/photo/photo.component';
 import { SearchComponent } from '../photo/search/search.component';
 import { GooglemapsComponent } from '../tur/googlemaps/googlemaps.component';
+import { VideoComponent } from '../video/video/video.component';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -23,6 +25,8 @@ const appRoutes: Routes = [
   { path: 'photo/:id', component: PhotoComponent },
   { path: 'photos/search', component: SearchComponent },
   { path: 'tur/googlemaps', component: GooglemapsComponent },
+  { path: 'videos/all', component: AllComponent },
+  { path: 'video/:id', component: VideoComponent },
 
 ];
 
