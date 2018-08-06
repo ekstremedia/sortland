@@ -17,7 +17,21 @@ $photoborder: 1px solid rgba(100,100,100,0.4);
 $darktext:  rgba(148, 148, 148, 0.6);
 $infotext:  rgb(194, 194, 194);
 $infotext-light:  rgba(194, 194, 194,0.5);
+.video-container {
+	position:relative;
+	padding-bottom:54%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
 
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
 
 body {
     background-color: $darkbg;
@@ -46,7 +60,7 @@ body {
     color: lighten($color: $infotext-light, $amount: 20)
 }
 .masonry-item { width: 260px; }
-.masonry-item-yt { width: 340px; }
+.masonry-item-yt { width: 330px; }
 .flickImgBox {
      min-height: 159px; 
      img {
@@ -97,4 +111,10 @@ body {
 .github:hover {
    color: lighten($color: $github, $amount: $ligtenvar);
    text-shadow: $vars;
+}
+.cf {
+    float: none; margin: 0 auto;
+}
+.red {
+    background-color: #f00;
 }

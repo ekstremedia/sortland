@@ -26,7 +26,10 @@
               "src/styles.scss",
               "./node_modules/videogular2/fonts/videogular.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/popper.js/dist/umd/popper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"            ]
           },
           "configurations": {
             "production": {
@@ -75,7 +78,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+
             "assets": [
               "src/favicon.ico",
               "src/assets"

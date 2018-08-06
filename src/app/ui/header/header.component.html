@@ -1,36 +1,59 @@
-<nav class="navbar navbar-dark bg-dark mb-1">
-  <a class="navbar-brand" routerLink="">Nesthus.no</a>
-  <div class="navbar-expand mr-auto">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home</a>
-      <a class="nav-item nav-link" routerLink="posts">Posts</a>
-      <a class="nav-item nav-link" routerLink="videos/all">Videos</a>
-      <a class="nav-item nav-link" routerLink="tur/googlemaps">Google maps</a>
-      <a class="nav-item nav-link" routerLink="photos/galleries">Sets</a>
-      <a class="nav-item nav-link" routerLink="photos/feed">Feed</a>
-      <a class="nav-item nav-link" routerLink="photos/search">Search</a>
-      <a class="nav-item nav-link" routerLink="/welcome">Welcome
-        <i class="fab fa-medium"></i>
-      </a>
+
+
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mb-1">
+    <button  #navbarToggler class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" routerLink="">Nesthus.no</a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="/welcome">Welcome</a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="videos/all" >Videos</a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="tur/googlemaps">Google maps</a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="photos/galleries">Sets</a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="photos/feed">Feed</a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="posts">Posts</a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="photos/search">Search</a>
+
+        </li>
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+          <a class="nav-item nav-link" href="https://github.com/ekstremedia" target="_blank">
+            <i class="fab fa-github github"></i>
+          </a>
+          <a class="nav-item nav-link" href="https://twitter.com/TerjeNesthus" target="_blank">
+            <i class="fab fa-twitter tweetfarge"></i>
+          </a>
+          <a class="nav-item nav-link" href="https://www.facebook.com/tehthird" target="_blank">
+            <i class="fab fa-facebook-square fbfarge"></i>
+          </a>
+          <a class="nav-item nav-link" href="https://www.youtube.com/channel/UC4UfvK9wdcZ8HKYfCCb_fWg" target="_blank">
+            <i class="fab fa-youtube ytfarge"></i>
+          </a>
+  
+        <a class="nav-item nav-link" href="https://www.instagram.com/ekstremedia/" target="_blank">
+          <i class="fab fa-instagram instagram"></i>
+        </a>
+      </form>
     </div>
-  </div>
-  <div class="navbar-expand ml-auto navbar-nav">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="https://github.com/ekstremedia" target="_blank">
-        <i class="fab fa-github github"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://twitter.com/TerjeNesthus" target="_blank">
-        <i class="fab fa-twitter tweetfarge"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://www.facebook.com/tehthird" target="_blank">
-        <i class="fab fa-facebook-square fbfarge"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://www.youtube.com/channel/UC4UfvK9wdcZ8HKYfCCb_fWg" target="_blank">
-        <i class="fab fa-youtube ytfarge"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://www.instagram.com/ekstremedia/" target="_blank">
-        <i class="fab fa-instagram instagram"></i>
-      </a>
-    </div>
-  </div>
-</nav>
+  </nav>

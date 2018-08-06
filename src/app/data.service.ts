@@ -21,7 +21,7 @@ export class DataService {
   // YOUTUBE START
 
   getLastVideos() {
-    const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.api.getYoutubeApi() + '&type=video&channelId=' + this.api.getYoutubeUserId() + '&part=snippet,id&order=date&maxResults=21';
+    const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.api.getYoutubeApi() + '&type=video&channelId=' + this.api.getYoutubeUserId() + '&part=snippet,id&order=date&maxResults=30';
     console.log('yt-url: ', url);
     return this.http.get(url).pipe(
       data => data

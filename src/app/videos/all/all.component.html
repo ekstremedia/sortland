@@ -1,6 +1,6 @@
-<div class="container-float">
+<div class="container">
   <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12  text-center">
       <h3>
         Videoer
       </h3>
@@ -8,24 +8,19 @@
       <hr class="mt-1 mb-2">
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">  
-      <div *ngIf="videos">
-
-        <ngx-masonry>
-          <ngxMasonryItem class="masonry-item-yt" *ngFor="let video of videos">
+  <div class="row " *ngIf="videos">
+    <div class="col-xl-12 col-lg-10 col-md-10  col-sm-12 col-xs-12 mx-auto">
+      <ngx-masonry [useImagesLoaded]="true" [options]="{fitWidth:'true'}">
+        <ngxMasonryItem class=" m-3 masonry-item-yt" *ngFor="let video of videos">
 
 
-            <a routerLink="/video/{{video.id.videoId}}">
-              <img [src]="video.snippet.thumbnails.medium.url" [width]="video.snippet.thumbnails.medium.width" [height]="video.snippet.thumbnails.medium.height">
-              <h6>{{ video.snippet.title }}</h6>
-            </a>
+          <a routerLink="/video/{{video.id.videoId}}">
+            <img [src]="video.snippet.thumbnails.medium.url" [width]="video.snippet.thumbnails.medium.width" [height]="video.snippet.thumbnails.medium.height">
+            <h6>{{ video.snippet.title }}</h6>
+          </a>
 
-          </ngxMasonryItem>
-        </ngx-masonry>
-
-      </div>
-
+        </ngxMasonryItem>
+      </ngx-masonry>
     </div>
   </div>
 </div>
