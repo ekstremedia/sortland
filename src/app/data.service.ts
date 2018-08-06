@@ -30,15 +30,22 @@ export class DataService {
       data => data
     );
   }
-  getVideo(id: string) {
+  getVideo(id) {
     // console.log(id);
-    const url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id.id + '&key=' + this.youtube_api;
+    const url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id + '&key=' + this.youtube_api;
     // const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.youtube_api + '&channelId=' + this.youtube_userid + '&part=snippet,id&id=' + id;
     console.log('yt-url: ', url);
     return this.http.get(url).pipe(
       data => data
     );
   }
+
+
+
+
+
+
+
 
   // YOUTUBE END
 

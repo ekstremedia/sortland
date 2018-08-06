@@ -16,7 +16,11 @@ import { FormsModule } from '@angular/forms';
 import { GooglemapsComponent } from './tur/googlemaps/googlemaps.component';
 import { AllComponent } from './videos/all/all.component';
 import { VideoComponent } from './video/video/video.component';
-
+import { YoutubePlayerModule } from 'ngx-youtube-player';
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
 // from https://angular.io/guide/router
 
 
@@ -37,11 +41,16 @@ import { VideoComponent } from './video/video/video.component';
   imports: [
     HttpClientModule,
     BrowserModule,
+    YoutubePlayerModule,
     HttpClientJsonpModule,
     UiModule,
     AppRoutingModule,
     NgxMasonryModule,
-    FormsModule
+    FormsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

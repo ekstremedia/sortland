@@ -1,16 +1,27 @@
 <div class="container">
+
+<div class="row">
+  <div class="col-12">
+      <!-- <vg-player>
+          <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+              <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+          </video>
+      </vg-player>
+       -->
+  </div>
+</div>
+
+
+
   <div class="row">
-    <div class="col-12">
-      <div *ngIf="video">
-        <h1>
-            {{ video.title }}
-        </h1>
-        <div *ngIf="video.description" class="text-muted" [innerHTML]="video.description">
-        </div>
-        <img [src]="video.thumbnails.maxres.url" [width]="video.thumbnails.maxres.width" [height]="video.thumbnails.maxres.height">
-
-      </div>
-
+    <div class="col-12" *ngIf="video && videoid">
+      <h1>
+        {{ video.title }} 
+      </h1>
+      <small style="cursor: pointer;"><a (click)="startVid()">{{spillpause}}</a></small>
+    </div>
+    <youtube-player [videoId]="videoid" (ready)="savePlayer($event)" (change)="onStateChange($event)" height='720' width='1280'></youtube-player>
+    <div *ngIf="video && video.description" class="text-muted" [innerHTML]="video.description">
     </div>
   </div>
 </div>
