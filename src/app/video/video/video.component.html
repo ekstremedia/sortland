@@ -1,13 +1,34 @@
-  <div class="container">
+<div class="container-float" *ngIf="video">
   <div class="row">
-    <div class="col-12" *ngIf="video && videoid">
-      <h1>
-        {{ video.title }} 
-      </h1>
-      <small style="cursor: pointer;"><a (click)="startVid()">{{spillpause}}</a></small>
+    <div class="col-12 text-center">
+      <h3>
+        {{ video.title }}
+      </h3>
+      <video-menu></video-menu>
+      <hr class="mt-1 mb-2">
     </div>
-    <youtube-player [videoId]="videoid" (ready)="savePlayer($event)" (change)="onStateChange($event)" height='720' width='1280'></youtube-player>
-    <div *ngIf="video && video.description" class="text-muted" [innerHTML]="video.description">
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-12 mx-auto" *ngIf="video && videoid">
+      <h1>
+        {{ video.title }}
+      </h1>
+      <small style="cursor: pointer;">
+        <a (click)="startVid()">{{spillpause}}</a>
+      </small>
+    </div>
+  </div>
+  <div class="row  ">
+    <div class="col-12 mx-auto">
+      <youtube-player protocol="http" [videoId]="videoid" (ready)="savePlayer($event)" (change)="onStateChange($event)" height='720'
+        width='1280'></youtube-player>
+      <div *ngIf="video && video.description" class="text-muted" [innerHTML]="video.description">
+      </div>
     </div>
   </div>
 </div>

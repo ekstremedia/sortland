@@ -1,9 +1,15 @@
-<div class="container">
+<div class="container-float">
   <div class="row">
-    <div class="col-12">
-      <h1>
-        Videos
-      </h1>
+    <div class="col-12 text-center">
+      <h3>
+        Videoer
+      </h3>
+      <video-menu></video-menu>
+      <hr class="mt-1 mb-2">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">  
       <div *ngIf="videos">
 
         <ngx-masonry>

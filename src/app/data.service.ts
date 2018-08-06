@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
   constructor(private http: HttpClient, private api: ApiService) { }
 
+ origin = '&origin=http://localhost:4200';
 
   public getPosts() {
     const postUrl = 'https://jsonplaceholder.typicode.com/posts';
@@ -20,7 +21,7 @@ export class DataService {
   // YOUTUBE START
 
   getLastVideos() {
-    const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.api.getYoutubeApi() + '&channelId=' + this.api.getYoutubeUserId() + '&part=snippet,id&order=date&maxResults=20';
+    const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.api.getYoutubeApi() + '&type=video&channelId=' + this.api.getYoutubeUserId() + '&part=snippet,id&order=date&maxResults=21';
     console.log('yt-url: ', url);
     return this.http.get(url).pipe(
       data => data
@@ -28,7 +29,7 @@ export class DataService {
   }
   getVideo(id) {
     // console.log(id);
-    const url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id + '&key=' + this.api.getYoutubeApi();
+    const url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id + '&key=' + this.api.getYoutubeApi() + this.origin;
     // const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.api.getYoutubeApi() + '&channelId=' + this.api.getYoutubeUserId() + '&part=snippet,id&id=' + id;
     console.log('yt-url: ', url);
     return this.http.get(url).pipe(

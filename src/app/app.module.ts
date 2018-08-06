@@ -21,6 +21,7 @@ import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
+import { VideomenyComponent } from './videos/videomeny/videomeny.component';
 // from https://angular.io/guide/router
 
 
@@ -36,7 +37,8 @@ import {VgBufferingModule} from 'videogular2/buffering';
     SearchComponent,
     GooglemapsComponent,
     AllComponent,
-    VideoComponent
+    VideoComponent,
+    VideomenyComponent
   ],
   imports: [
     HttpClientModule,
