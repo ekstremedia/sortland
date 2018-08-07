@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+  playlist_aurora = 'PL3E34C7679D9CD762';
   constructor(private http: HttpClient, private api: ApiService) { }
 
  origin = '&origin=http://localhost:4200';
@@ -27,11 +28,18 @@ export class DataService {
       data => data
     );
   }
+  getPlaylist(id) {
+    const url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + id + '&key=' + this.api.getYoutubeApi() + '&order=date&maxResults=30';
+    console.log('yt-playlist-url: ', url);
+    return this.http.get(url).pipe(
+      data => data
+    );
+  }
   getVideo(id) {
     // console.log(id);
     const url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id + '&key=' + this.api.getYoutubeApi() + this.origin;
     // const url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.api.getYoutubeApi() + '&channelId=' + this.api.getYoutubeUserId() + '&part=snippet,id&id=' + id;
-    console.log('yt-url: ', url);
+    console.log('videourl: ', url);
     return this.http.get(url).pipe(
       data => data
     );

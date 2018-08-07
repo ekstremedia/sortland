@@ -29,6 +29,7 @@
     "ngx-youtube-player": "^6.0.0",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
+    "selfupdate": "^1.1.0",
     "videogular2": "^6.3.0",
     "zone.js": "^0.8.26"
   },

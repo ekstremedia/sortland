@@ -13,6 +13,7 @@ export class GooglemapsComponent implements OnInit {
   latlon: any;
   longitude: number;
   kmlfil = 'assets/molsterskitset.kml';
+  kmlLayer: any;
   constructor() { }
 
   ngOnInit() {
@@ -45,23 +46,37 @@ export class GooglemapsComponent implements OnInit {
     this.latitude = 60.6257904;
     this.map.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
   }
+  clear() {
+    if (this.kmlLayer) {
+      this.kmlLayer.setMap(null);
+    }
+  }
+  setHagahaugen() {
+    this.clear();
+    this.kmlLayer = new google.maps.KmlLayer({
+      url: 'http://nesthus.no/hagahaugenmolster.kml',
+      map: this.map
+    });
+
+  }
+
+  setOrrefloten() {
+    this.clear();
+
+    this.kmlLayer = new google.maps.KmlLayer({
+      url: 'http://nesthus.no/molsterorrefloten.kml',
+      map: this.map
+    });
+
+  }
 
   setMolster() {
-    // const kmlLayer = new google.maps.KmlLayer(this.kmlfil, {
-    //   suppressInfoWindows: true,
-    //   preserveViewport: false,
-    //   map: this.map
-    // });
-    // kmlLayer.addListener('click', function(event) {
-    //   var content = event.featureData.infoWindowHtml;
-    //   var testimonial = document.getElementById('capture');
-    //   testimonial.innerHTML = content;
-    // });
-    console.log(this.kmlfil);
-    const georssLayer = new google.maps.KmlLayer({
+    this.clear();
+
+    this.kmlLayer = new google.maps.KmlLayer({
       url: 'http://nesthus.no/molsterskitset.kml',
       map: this.map
     });
-    
+
   }
 }

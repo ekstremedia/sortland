@@ -14,6 +14,7 @@ import { PhotoComponent } from '../photo/photo/photo.component';
 import { SearchComponent } from '../photo/search/search.component';
 import { GooglemapsComponent } from '../tur/googlemaps/googlemaps.component';
 import { VideoComponent } from '../video/video/video.component';
+import { PlaylistComponent } from '../videos/playlist/playlist.component';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'tur/googlemaps', component: GooglemapsComponent },
   { path: 'videos/all', component: AllComponent },
   { path: 'video/:id', component: VideoComponent },
+  { path: 'videos/playlist/:id', component: PlaylistComponent },
 
 ];
 

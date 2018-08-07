@@ -77,7 +77,8 @@ export class PhotoComponent implements OnInit {
         this.camera = camut;
         for (const exifdata of this.exif.exif) {
           if (exifdata.tag === 'FNumber') { this.aperture = exifdata.clean._content; }
-          if (exifdata.tag === 'FocalLength') { this.focal = exifdata.clean._content; }
+          if (exifdata.tag === 'FocalLength' && exifdata.clean) { this.focal = exifdata.clean._content; }
+          if (exifdata.tag === 'FocalLength' && exifdata.raw) { this.focal = exifdata.raw._content; }
           // if (exifdata.tag === 'MeteringMode') { this.metering = exifdata.raw._content; }
           // if (exifdata.tag === 'Flash') { this.flash = exifdata.raw._content; }
           if (exifdata.tag === 'ISO') { this.iso = exifdata.raw._content; }
