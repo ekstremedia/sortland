@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "npm update && ng serve",
     "build": "ng build",
+    "b": "ng build --prod --build-optimizer --base-href /angular/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

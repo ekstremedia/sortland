@@ -13,7 +13,7 @@ videos: any;
   ngOnInit() {
     this.getVideos();
   }
- 
+
 
   getVideos() {
     this.data.getLastVideos().subscribe(data => {

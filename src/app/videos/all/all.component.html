@@ -10,7 +10,7 @@
   </div>
   <div class="row " *ngIf="videos">
     <div class="col-xl-12 col-lg-10 col-md-10  col-sm-12 col-xs-12 mx-auto">
-      <ngx-masonry [useImagesLoaded]="true" [options]="{fitWidth:'true'}">
+      <ngx-masonry>
         <ngxMasonryItem class=" m-3 masonry-item-yt" *ngFor="let video of videos">
 
 

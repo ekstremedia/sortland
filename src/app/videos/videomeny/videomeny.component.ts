@@ -12,7 +12,7 @@ export class VideomenyComponent implements OnInit {
   sisteVideoer = 'Siste videoer';
   auroras = 'Aurora Borealis';
   vossajazz = 'Vossa Jazz';
-  constructor(private router: Router, private route: ActivatedRoute) { this.route.params.subscribe(params => this.params = params); }
+  constructor(public router: Router, private route: ActivatedRoute) { this.route.params.subscribe(params => this.params = params); }
 
   ngOnInit() {
   }
