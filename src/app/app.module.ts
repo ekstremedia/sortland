@@ -23,6 +23,7 @@ import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 import { VideomenyComponent } from './videos/videomeny/videomeny.component';
 import { PlaylistComponent } from './videos/playlist/playlist.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // from https://angular.io/guide/router
 
@@ -44,6 +45,7 @@ import { PlaylistComponent } from './videos/playlist/playlist.component';
     PlaylistComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     HttpClientModule,
     BrowserModule,
     YoutubePlayerModule,

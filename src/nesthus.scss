@@ -65,12 +65,18 @@ body {
 }
 .masonry-item { width: 260px; }
 .masonry-item-yt { width: 330px; }
-.animg {
-    opacity: 0.5;
-}
+// .animgflickImgBox {
+//     opacity: .8;
+// }
+// $trans: 1.1;
+// .animg:hover {
+//     opacity: 1 !important ;
+// }
 .flickImgBox {
      min-height: 159px; 
+     
      img {
+        max-width: 200px;
         border: 1px solid rgba($color: #ccc, $alpha: 0.3);
      }
      img:hover {

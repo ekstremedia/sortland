@@ -3,9 +3,9 @@
 </div>
 
 
-<div *ngIf="flickrSet">
+<div *ngIf="flickrSet" class="container-fluid">
 
-  <ngx-masonry>
+  <!-- <ngx-masonry>
     <ngxMasonryItem class="masonry-item" *ngFor="let image of flickrSet">
       <div *ngIf="image.visibility_can_see_set===1 && image.id!='72157645476820517'">
         <a routerLink="/photos/set/{{image.id}}">
@@ -29,8 +29,32 @@
         </div>
       </div>
     </ngxMasonryItem>
-  </ngx-masonry>
+  </ngx-masonry> -->
 
 
+
+
+  <div class="row" [@listAnimation]="flickrSet.length">
+    <div *ngFor="let image of flickrSet"  class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center">
+      <div *ngIf="image.visibility_can_see_set===1 && image.id!='72157645476820517'">
+        <a routerLink="/photos/set/{{image.id}}">
+          <span class="bt">{{ image.title._content }}</span>
+        </a>
+        <a routerLink="/photos/set/{{image.id}}">
+          <div *ngIf="image.primary_photo_extras" class="flickImgBox">
+            <img [src]="image.primary_photo_extras.url_s" [alt]="image.title" [title]="image.title">
+          </div>
+        </a>
+        {{ image.photos }} photos
+        <span *ngIf="image.count_views>0">,
+          <span class="tb">{{ image.count_views }}</span> views</span>
+        <span *ngIf="image.count_comments>0" class="text-success">, {{ image.count_comments }} comments</span>
+        <br>
+        <div *ngIf="image.description._content" class="text-muted">
+          {{ image.description._content }}
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

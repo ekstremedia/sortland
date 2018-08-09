@@ -1,5 +1,5 @@
 <button type="button" name="" id="" class="btn btn-primary" (click)="runAnim()">
-  do it
+    runAnim()
 </button>
 <div *ngIf="flickrFeed" class="container-fluid">
   <!-- <ngx-masonry useImagesLoaded="true" updateLayout="false"  [options]="{ transitionDuration: '2s' }">
@@ -18,16 +18,16 @@
       </ngxMasonryItem>
     </ngx-masonry> -->
 
-  <div class="row">
+  <div class="row" [@listAnimation]="flickrFeed.length">
 
-    <div *ngFor="let image of flickrFeed" class="animg col-3 text-center">
+    <div *ngFor="let image of flickrFeed" class=" col-3 text-center">
       <a routerLink="/photo/{{idof(image.link)}}">
-        <span class="bt">{{ image.title }}</span>
+        <!-- <span class="bt">{{ image.title }}</span> -->
       </a>
       <br>
       <div class="">
         <a routerLink="/photo/{{idof(image.link)}}">
-          <img [src]="image.media.m" [alt]="image.title" [title]="image.title">
+          <img [src]="image.media.m" [alt]="image.title" [title]="image.title" class="animg">
         </a>
       </div>
     </div>

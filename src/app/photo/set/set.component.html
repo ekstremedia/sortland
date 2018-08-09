@@ -7,7 +7,7 @@
     <h2>{{set.title}}</h2>
     <span class="text-muted">
       <span class="tb"> {{set.total}}</span> photos , ID: {{setId.id}} </span>
-    <ngx-masonry>
+    <!-- <ngx-masonry>
       <ngxMasonryItem class="masonry-item" *ngFor="let image of set.photo">
 
         <a routerLink="/photo/{{image.id}}">
@@ -26,12 +26,30 @@
 
 
       </ngxMasonryItem>
-    </ngx-masonry>
+    </ngx-masonry> -->
+
+    <div class="row"  [@listAnimation]="set.photo.length" >
+
+      <div class=" col-3 text-center"*ngFor="let image of set.photo">
+
+        <a routerLink="/photo/{{image.id}}">
+          <span class="bt">{{ image.title }}</span>
+        </a>
+        <br>
+        <span *ngIf="image.datetaken">{{ image.datetaken | date }}</span>
+        <span *ngIf="image.views>0">,
+          <span class="tb">{{ image.views }}</span> views</span>
+        <span *ngIf="image.count_comments>0" class="text-success">, {{ image.count_comments }} comments</span>
+        <div class="flickImgBox">
+          <a routerLink="/photo/{{image.id}}">
+            <img [src]="image.url_s" [alt]="image.title" [title]="image.title">
+          </a>
+        </div>
+
+      </div>
+    </div>
 
 
 
   </div>
-
-
-
 </div>
