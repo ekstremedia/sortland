@@ -23,6 +23,7 @@ import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 import { VideomenyComponent } from './videos/videomeny/videomeny.component';
 import { PlaylistComponent } from './videos/playlist/playlist.component';
+
 // from https://angular.io/guide/router
 
 

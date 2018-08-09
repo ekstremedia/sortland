@@ -1,6 +1,8 @@
-<div *ngIf="flickrFeed">
-
-    <ngx-masonry>
+<button type="button" name="" id="" class="btn btn-primary" (click)="runAnim()">
+  do it
+</button>
+<div *ngIf="flickrFeed" class="container-fluid">
+  <!-- <ngx-masonry useImagesLoaded="true" updateLayout="false"  [options]="{ transitionDuration: '2s' }">
       <ngxMasonryItem class="masonry-item" *ngFor="let image of flickrFeed">
           <a routerLink="/photo/{{idof(image.link)}}">
           <span class="bt">{{ image.title }}</span>
@@ -12,13 +14,24 @@
             <a routerLink="/photo/{{idof(image.link)}}">
           <img [src]="image.media.m" [alt]="image.title" [title]="image.title">
         </a>
-      </div>
-        <br>
-  
-        <!-- <div [innerHTML]="image.description"></div> -->
+      </div>  
       </ngxMasonryItem>
-    </ngx-masonry>
+    </ngx-masonry> -->
 
-  
-  
+  <div class="row">
+
+    <div *ngFor="let image of flickrFeed" class="animg col-3 text-center">
+      <a routerLink="/photo/{{idof(image.link)}}">
+        <span class="bt">{{ image.title }}</span>
+      </a>
+      <br>
+      <div class="">
+        <a routerLink="/photo/{{idof(image.link)}}">
+          <img [src]="image.media.m" [alt]="image.title" [title]="image.title">
+        </a>
+      </div>
+    </div>
+
   </div>
+
+</div>

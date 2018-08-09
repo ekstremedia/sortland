@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
-import { isLoweredSymbol } from '@angular/compiler';
 
 @Component({
   selector: 'app-photo',
@@ -28,6 +27,7 @@ export class PhotoComponent implements OnInit {
     this.getSizes(this.setId);
     this.getExif(this.setId);
     this.getContext(this.setId);
+
   }
 
   getInfo(setId) {

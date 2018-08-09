@@ -18,7 +18,7 @@ export class PlaylistComponent implements OnInit {
       .subscribe(params => {
 
         const id = params.get('id');
-        console.log(id)
+        console.log(id);
 
         this.getPlaylist(id);
       }
