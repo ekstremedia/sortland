@@ -11,8 +11,10 @@
         <button (click)="setMolster()" class="btn btn-warning">Set Mølster</button>
         <button (click)="setHagahaugen()" class="btn btn-warning"> setHagahaugen</button>
         <button (click)="setOrrefloten()" class="btn btn-warning"> setOrrefloten</button>
+        <button (click)="tilt()" class="btn btn-warning"> tilt()</button>
+        <button (click)="setMarker()" class="btn btn-warning"> setMarker()</button>
       </div>
-
+      my pos: {{ myPosition }}
 
       <form class="form-inline" #form="ngForm" (ngSubmit)="setCenter($event)" ac>
         <div class="form-group">

@@ -14,6 +14,7 @@ export class GooglemapsComponent implements OnInit {
   longitude: number;
   kmlfil = 'assets/molsterskitset.kml';
   kmlLayer: any;
+  myPosition: any;
   constructor() { }
 
   ngOnInit() {
@@ -33,9 +34,54 @@ export class GooglemapsComponent implements OnInit {
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     // this.tmplatitude = this.map.location.lat;
     this.setMolster();
+
+
+
+  // this.setMarker();
+
+
+  if (window.navigator && window.navigator.geolocation) {
+    window.navigator.geolocation.getCurrentPosition(
+        position => {
+          this.myPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
+            // this.myPosition = position,
+                console.log(position);
+        },
+        error => {
+            switch (error.code) {
+                case 1:
+                    console.log('Permission Denied');
+                    break;
+                case 2:
+                    console.log('Position Unavailable');
+                    break;
+                case 3:
+                    console.log('Timeout');
+                    break;
+            }
+        }
+    );
+};
+
+  }
+  setMarker() {
+
+
+    // Try HTML5 geolocation.
+        console.log('Sat marker');
+        if (this.map) {
+        const m = new google.maps.Marker({
+          position: this.myPosition,
+          map: this.map,
+          title: 'Din posisjon'});
+        }
+
   }
   setMapType(mapTypeId: string) {
     this.map.setMapTypeId(mapTypeId);
+  }
+  tilt(): void {
+    this.map.setTilt(45);
   }
   setCenter(e: any) {
     e.preventDefault();
