@@ -105,6 +105,14 @@ export class GooglemapsComponent implements OnInit {
     });
 
   }
+  setKiseldur() {
+    this.clear();
+    this.kmlLayer = new google.maps.KmlLayer({
+      url: 'http://nesthus.no/kiseldur.kml',
+      map: this.map
+    });
+
+  }
 
   setOrrefloten() {
     this.clear();
