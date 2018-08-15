@@ -1,10 +1,16 @@
-<div *ngIf="!flickrSet">
-  <h1>Lastar sett</h1>
-</div>
-
-
-<div *ngIf="flickrSet" class="container-fluid">
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12  text-center">
+      <h3 class="text-muted" *ngIf="!flickrSet">
+        Bildegallerier <i  class="fas fa-spinner fa-spin loading-color"></i>
+      </h3>
+      <h3 *ngIf="flickrSet">
+        Bildegallerier
+      </h3>
+      <photo-menu></photo-menu>
+      <hr class="mt-1 mb-2">
+    </div>
+  </div>
   <!-- <ngx-masonry>
     <ngxMasonryItem class="masonry-item" *ngFor="let image of flickrSet">
       <div *ngIf="image.visibility_can_see_set===1 && image.id!='72157645476820517'">
@@ -34,8 +40,8 @@
 
 
 
-  <div class="row" [@listAnimation]="flickrSet.length">
-    <div *ngFor="let image of flickrSet"  class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center">
+  <div *ngIf="flickrSet" class="row" [@listAnimation]="flickrSet.length">
+    <div *ngFor="let image of flickrSet" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center">
       <div *ngIf="image.visibility_can_see_set===1 && image.id!='72157645476820517'">
         <a routerLink="/photos/set/{{image.id}}">
           <span class="bt">{{ image.title._content }}</span>

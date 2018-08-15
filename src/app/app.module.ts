@@ -24,6 +24,7 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { VideomenyComponent } from './videos/videomeny/videomeny.component';
 import { PlaylistComponent } from './videos/playlist/playlist.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PhotomenyComponent } from './photo/photomeny/photomeny.component';
 
 // from https://angular.io/guide/router
 
@@ -42,7 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AllComponent,
     VideoComponent,
     VideomenyComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    PhotomenyComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -17,6 +17,10 @@ $photoborder: 1px solid rgba(100,100,100,0.4);
 $darktext:  rgba(148, 148, 148, 0.6);
 $infotext:  rgb(194, 194, 194);
 $infotext-light:  rgba(194, 194, 194,0.5);
+.loading-color {
+    color: hotpink;
+}
+
 html {
     overflow-y: scroll;
   }

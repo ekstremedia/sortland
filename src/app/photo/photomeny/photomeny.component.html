@@ -1,0 +1,13 @@
+<span class="text-muted">
+  [
+ <span *ngIf="this.router.url === '/photos/feed'" class="text-muted">{{ sisteBilder }}</span>
+ <a *ngIf="this.router.url !== '/photos/feed'" routerLink="/photos/feed">{{ sisteBilder }}</a> | 
+ 
+ <span *ngIf="this.router.url === '/photos/galleries'" class="text-muted">{{ gallerier }}</span>
+ <a *ngIf="this.router.url !== '/photos/galleries'" routerLink="/photos/galleries">{{ gallerier }}</a> 
+ | 
+ <span *ngIf="this.router.url === '/photos/set/72157637863510443'" class="text-muted">{{ longExpo }}</span>
+ <a *ngIf="this.router.url !== '/photos/set/72157637863510443'" routerLink="/photos/set/72157637863510443">{{ longExpo }}</a> 
+ 
+ ]
+ </span>
