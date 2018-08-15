@@ -34,11 +34,19 @@ export class SetComponent implements OnInit {
   constructor(private data: DataService, private route: ActivatedRoute) { this.route.params.subscribe( params => this.setId = params ); }
 
   ngOnInit() {
-    this.getSetImages(this.setId);
+    this.route.paramMap
+    .subscribe(params => {
+
+      const id = params.get('id');
+      console.log('id: ',id);
+
+      this.getSetImages(id);
+    }
+  );
   }
 
   getSetImages(setId) {
-    this.data.getFlickrSetPhotos(setId.id).subscribe(
+    this.data.getFlickrSetPhotos(setId).subscribe(
       data => {
         this.set = data['photoset'];
           console.log('set: ', this.set);
