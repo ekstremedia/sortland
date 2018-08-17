@@ -135,3 +135,38 @@ body {
 .red {
     background-color: #f00;
 }
+.meny-links {
+    color: hotpink;
+    text-decoration-line:  none;
+    border-bottom: 1px solid transparent;
+    transition: 
+    border-bottom 450ms ease-in-out,
+    color 250ms ease-out;
+}
+.meny-links:hover {
+    color: rgb(255, 191, 223);
+    text-decoration-line:  none;
+    border-bottom: 1px solid rgba(75, 255, 4, 0.8);
+}
+
+.sec-links {
+    color: hotpink;
+    text-decoration-line:  none;
+    border-bottom: 1px solid transparent;
+    transition: 
+    border-bottom 450ms ease-in-out,
+    color 250ms ease-out;
+}
+.sec-links:hover {
+    color: rgb(255, 191, 223);
+    text-decoration-line:  none;
+    border-bottom: 1px solid rgba(75, 255, 4, 0.8);
+}
+.sec-links img {
+    border: 1px solid transparent;
+    transition: 
+    border 250ms ease-in;
+}
+.sec-links:hover img {
+    border: 1px solid hotpink;
+}

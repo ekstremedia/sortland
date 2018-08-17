@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-12  text-center">
       <h3 *ngIf="!set" class="text-muted">
@@ -40,16 +40,16 @@
 
         <div class=" col-3 text-center" *ngFor="let image of set.photo">
 
-          <a routerLink="/photo/{{image.id}}">
-            <span class="bt">{{ image.title }}</span>
+          <a class="sec-links" routerLink="/photo/{{image.id}}">
+            <!-- <span class="">{{ image.title }}</span> -->
           </a>
           <br>
-          <span *ngIf="image.datetaken">{{ image.datetaken | date }}</span>
+          <!-- <span *ngIf="image.datetaken">{{ image.datetaken | date }}</span>
           <span *ngIf="image.views>0">,
-            <span class="tb">{{ image.views }}</span> views</span>
+            <span class="tb">{{ image.views }}</span> views</span> -->
           <span *ngIf="image.count_comments>0" class="text-success">, {{ image.count_comments }} comments</span>
-          <div class="flickImgBox">
-            <a routerLink="/photo/{{image.id}}">
+          <div class="">
+            <a class="sec-links" routerLink="/photo/{{image.id}}">
               <img [src]="image.url_s" [alt]="image.title" [title]="image.title">
             </a>
           </div>

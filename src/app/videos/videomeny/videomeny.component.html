@@ -1,13 +1,13 @@
 <span class="text-muted">
  [
 <span *ngIf="this.router.url === '/videos/all'" class="text-muted">{{ sisteVideoer }}</span>
-<a *ngIf="this.router.url !== '/videos/all'" routerLink="/videos/all">{{ sisteVideoer }}</a> | 
+<a class="meny-links" *ngIf="this.router.url !== '/videos/all'" routerLink="/videos/all">{{ sisteVideoer }}</a> | 
 
 <span *ngIf="this.router.url === '/videos/playlist/auroras'" class="text-muted">{{ auroras }}</span>
-<a *ngIf="this.router.url !== '/videos/playlist/auroras'" routerLink="/videos/playlist/auroras">{{ auroras }}</a> 
+<a class="meny-links" *ngIf="this.router.url !== '/videos/playlist/auroras'" routerLink="/videos/playlist/auroras">{{ auroras }}</a> 
 | 
 <span *ngIf="this.router.url === '/videos/playlist/vossajazz'" class="text-muted">{{ vossajazz }}</span>
-<a *ngIf="this.router.url !== '/videos/playlist/vossajazz'" routerLink="/videos/playlist/vossajazz">{{ vossajazz }}</a> 
+<a class="meny-links" *ngIf="this.router.url !== '/videos/playlist/vossajazz'" routerLink="/videos/playlist/vossajazz">{{ vossajazz }}</a> 
 
 ]
 </span>
