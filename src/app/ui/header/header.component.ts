@@ -1,5 +1,6 @@
 import { DataService } from './../../data.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   @ViewChild('navbarToggler') navbarToggler: ElementRef;
   isNavbarCollapsed: any;
-  constructor(public data: DataService) { }
+  constructor(public data: DataService, public router: Router) { }
   v: any;
   ngOnInit() {
     this.v = this.data.v();

@@ -1,3 +1,4 @@
+import { BlogpostsComponent } from './../blog/blogposts/blogposts.component';
 import { AllComponent } from './../videos/all/all.component';
 import { PostsComponent } from './../pages/posts/posts.component';
 import { NgModule } from '@angular/core';
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'videos/all', component: AllComponent },
   { path: 'video/:id', component: VideoComponent },
   { path: 'videos/playlist/:id', component: PlaylistComponent },
+  { path: 'blog', component: BlogpostsComponent },
 
 ];
 

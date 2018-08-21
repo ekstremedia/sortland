@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Blog posts</h1>
+      <br>
+      <div *ngIf="posts">
+        <div *ngFor="let post of posts">
+          <h1>{{post.title_no}}</h1>
+          <div *ngIf="post.blog_cover">
+            <img [src]="post.blog_cover.path" width="400">
+          </div>
+          <span class="text-muted">
+            {{ post.created_at | date }} {{post.created_at | date:'HH:mm' }}
+          </span>
+          <br>
+          <div [innerHTML]="post.body_no"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row div col-12 text-muted">
+    {{ posts | json }}
+  </div>
+</div>

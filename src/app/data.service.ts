@@ -139,11 +139,28 @@ export class DataService {
   log(input,input2?) {
     if (environment.production === false) {
       if (input2) {
-        this.log(input,input2);
+        console.log(input,input2);
       } else {
-      this.log(input);
+      console.log(input);
       }
     }
   }
+
+  /// BLOG START
+
+  getBlogPosts() {
+    let seturl = null;
+    if (environment.production === false) {
+      seturl = 'http://localhost:81/nesthus/api/blogPosts';
+    } else {
+      seturl = 'api/blogPosts';
+    }
+    return this.http.get(seturl).pipe(
+      data => data
+    );
+  }
+
+
+  /// BLOG END
 
 }

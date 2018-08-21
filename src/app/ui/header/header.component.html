@@ -1,59 +1,61 @@
-
-
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mb-1">
-    <button  #navbarToggler class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" routerLink="">Nesthus.no {{v}}</a>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="/welcome">Welcome</a>
-            </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="videos/all" >Videos</a>
+  <button #navbarToggler class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="">Nesthus.no {{v}}</a>
 
-        </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="tur/googlemaps">Google maps</a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/welcome'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/welcome">Welcome</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/blog'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/blog">Blog</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/videos/all'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="videos/all">Videos</a>
 
-        </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="photos/galleries">Sets</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/tur/googlemaps'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="tur/googlemaps">Google maps</a>
 
-        </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="photos/feed">Feed</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/photos/galleries'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="photos/galleries">Sets</a>
 
-        </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="posts">Posts</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/photos/feed'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="photos/feed">Feed</a>
 
-        </li>
-        <li class="nav-item">
-            <a class="nav-item nav-link"  (click)="collapseNav()" routerLink="photos/search">Search</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/posts'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="posts">Posts</a>
 
-        </li>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/photos/search'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="photos/search">Search</a>
 
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-          <a class="nav-item nav-link" href="https://github.com/ekstremedia" target="_blank">
-            <i class="fab fa-github github"></i>
-          </a>
-          <a class="nav-item nav-link" href="https://twitter.com/TerjeNesthus" target="_blank">
-            <i class="fab fa-twitter tweetfarge"></i>
-          </a>
-          <a class="nav-item nav-link" href="https://www.facebook.com/tehthird" target="_blank">
-            <i class="fab fa-facebook-square fbfarge"></i>
-          </a>
-          <a class="nav-item nav-link" href="https://www.youtube.com/channel/UC4UfvK9wdcZ8HKYfCCb_fWg" target="_blank">
-            <i class="fab fa-youtube ytfarge"></i>
-          </a>
-  
-        <a class="nav-item nav-link" href="https://www.instagram.com/ekstremedia/" target="_blank">
-          <i class="fab fa-instagram instagram"></i>
-        </a>
-      </form>
-    </div>
-  </nav>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="nav-item nav-link" href="https://github.com/ekstremedia" target="_blank">
+        <i class="fab fa-github github"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://twitter.com/TerjeNesthus" target="_blank">
+        <i class="fab fa-twitter tweetfarge"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://www.facebook.com/tehthird" target="_blank">
+        <i class="fab fa-facebook-square fbfarge"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://www.youtube.com/channel/UC4UfvK9wdcZ8HKYfCCb_fWg" target="_blank">
+        <i class="fab fa-youtube ytfarge"></i>
+      </a>
+
+      <a class="nav-item nav-link" href="https://www.instagram.com/ekstremedia/" target="_blank">
+        <i class="fab fa-instagram instagram"></i>
+      </a>
+    </form>
+  </div>
+</nav>
