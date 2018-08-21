@@ -43,7 +43,7 @@ export class GalleriesComponent implements OnInit {
       data => {
         if (data['photosets']['photoset']) {
           this.flickrSet = data['photosets']['photoset'];
-          console.log(this.flickrSet);
+          this.data.log(this.flickrSet);
         }
       }
     );

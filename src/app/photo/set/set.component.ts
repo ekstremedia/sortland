@@ -38,7 +38,7 @@ export class SetComponent implements OnInit {
     .subscribe(params => {
 
       const id = params.get('id');
-      console.log('id: ',id);
+      this.data.log('id: ',id);
 
       this.getSetImages(id);
     }
@@ -49,7 +49,7 @@ export class SetComponent implements OnInit {
     this.data.getFlickrSetPhotos(setId).subscribe(
       data => {
         this.set = data['photoset'];
-          console.log('set: ', this.set);
+          this.data.log('set: ', this.set);
         }
     );
   }

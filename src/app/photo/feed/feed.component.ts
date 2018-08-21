@@ -65,7 +65,7 @@ export class FeedComponent implements OnInit {
   }
 
   runAnim() {
-    console.log('Running animation');
+    this.data.log('Running animation');
     // TweenMax.to('.animg', .5, { y: 225, css: { autoAlpha: 1 }, ease: Power1.easeOut });
     TweenMax.from('.animg', .4, { css: { x:-30 }, ease: Power1.easeOut });
   }

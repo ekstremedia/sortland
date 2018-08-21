@@ -1,3 +1,4 @@
+import { DataService } from './../../data.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -9,9 +10,10 @@ export class HeaderComponent implements OnInit {
 
   @ViewChild('navbarToggler') navbarToggler: ElementRef;
   isNavbarCollapsed: any;
-  constructor() { }
-
+  constructor(public data: DataService) { }
+  v: any;
   ngOnInit() {
+    this.v = this.data.v();
   }
   navBarTogglerIsVisible() {
     return this.navbarToggler.nativeElement.offsetParent !== null;

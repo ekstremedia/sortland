@@ -37,7 +37,7 @@ export class PhotoComponent implements OnInit {
         if (this.photo && this.photo.comments && this.photo.comments._content && this.photo.comments._content > 0) {
           this.getComments(this.photo.id);
         }
-        console.log('photo: ', this.photo);
+        this.data.log('photo: ', this.photo);
       }
     );
   }
@@ -45,7 +45,7 @@ export class PhotoComponent implements OnInit {
     this.data.getFlickrPhotoSizes(setId.id).subscribe(
       data => {
         this.sizes = data['sizes']['size'];
-        console.log('sizes: ', this.sizes);
+        this.data.log('sizes: ', this.sizes);
         this.photo_url = this.sizes[9].source;
       }
     );
@@ -54,7 +54,7 @@ export class PhotoComponent implements OnInit {
     this.data.getFlickrComments(photoId).subscribe(
       data => {
         this.comments = data['comments']['comment'];
-        console.log('comments: ', this.comments);
+        this.data.log('comments: ', this.comments);
       }
     );
   }
@@ -62,7 +62,7 @@ export class PhotoComponent implements OnInit {
     this.data.getPhotoContext(photoId.id).subscribe(
       data => {
         this.context = data;
-        console.log('context: ', this.context);
+        this.data.log('context: ', this.context);
       }
     );
   }
@@ -101,7 +101,7 @@ export class PhotoComponent implements OnInit {
           // if (exifdata.tag === 'ExposureProgram') { this.program = exifdata.raw._content; }
           // if (exifdata.tag === 'ExposureCompensation') { this.expbias = exifdata.raw._content; }
         }
-        console.log('exif: (' + photoId.id + ')', this.exif);
+        this.data.log('exif: (' + photoId.id + ')', this.exif);
       }
     );
   }
