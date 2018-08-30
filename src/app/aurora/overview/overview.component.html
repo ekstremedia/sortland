@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Aurora forecast</h1>
+      <button class="btn btn-outline-success" (click)="updateKindex()" [disabled]="upBtn">update</button>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <span class="kIndex-0"> low </span>
+      <span *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]; let i = index">
+        <span class="kIndex-{{number}}">
+          {{ number }}
+        </span>
+      </span>
+      <span class="kIndex-8"> high </span>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+
+    <div class="col-4">
+      <div *ngIf="noaaKindex">
+        <h3>KP-index</h3>
+
+        <!-- 
+      
+              <div *ngFor="let kIndex of noaaKindex">
+                {{ kIndex }}
+              </div> -->
+
+        <div *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]; let i = index">
+          <span [ngClass]="{'bt': pi(noaaKindex[noaaKindex.length-number][1]) >= 4}">
+            <span class="kIndex-{{pi(noaaKindex[noaaKindex.length-number][1])}}">
+              {{ pi(noaaKindex[noaaKindex.length-number][1]) }} </span>
+            ({{ noaaKindex[noaaKindex.length-number][0] | date }}
+            <i class="fas fa-clock text-muted"></i> {{noaaKindex[noaaKindex.length-number][0] | date:'HH:mm' }})
+            <span *ngIf="i===0">
+              <hr>
+            </span>
+            <span *ngIf="i>0">
+              <br>
+            </span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-4">
+      <div *ngIf="noaaKindexMinute">
+        <h3>Real time KP-index</h3>
+
+        <!-- 
+      
+              <div *ngFor="let kIndex of noaaKindex">
+                {{ kIndex }}
+              </div> -->
+
+        <div *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]; let i = index">
+          <span class="bt kIndex-{{pi(noaaKindexMinute[noaaKindexMinute.length-number][2])}}">{{ pi(noaaKindexMinute[noaaKindexMinute.length-number][2]) }} </span>
+          ({{ noaaKindexMinute[noaaKindexMinute.length-number][0] | date }}
+          <i class="fas fa-clock text-muted"></i> {{noaaKindexMinute[noaaKindexMinute.length-number][0] | date:'HH:mm' }}) 
+          (<span class="text-muted">{{noaaKindexMinute[noaaKindexMinute.length-number][1]}}</span>)
+          <span *ngIf="i===0">
+            <hr>
+          </span>
+          <span *ngIf="i>0">
+            <br>
+          </span>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-4">
+      <div *ngIf="noaaKindexForecast">
+        <h3>Forecast</h3>
+
+        <!-- 
+        
+                <div *ngFor="let kIndex of noaaKindexForecast">
+                  {{ kIndex }}
+                </div> -->
+
+        <div *ngFor="let number of [52,51,50,49,48,47,46,45,44,43]; let i = index">
+          <span [ngClass]="{'bt': pi(noaaKindexForecast[noaaKindexForecast.length-number][1]) >= 4}">
+            <span class="kIndex-{{pi(noaaKindexForecast[noaaKindexForecast.length-number][1])}}">{{ pi(noaaKindexForecast[noaaKindexForecast.length-number][1]) }} </span>
+            ({{ noaaKindexForecast[noaaKindexForecast.length-number][0] | date }}
+            <i class="fas fa-clock text-muted"></i> {{noaaKindexForecast[noaaKindexForecast.length-number][0] | date:'HH:mm' }}) {{ noaaKindexForecast[noaaKindexForecast.length-number][2]
+            }}
+            <span *ngIf="i===0">
+              <hr>
+            </span>
+            <span *ngIf="i>0">
+              <br>
+            </span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

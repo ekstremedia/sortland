@@ -16,6 +16,7 @@ import { SearchComponent } from '../photo/search/search.component';
 import { GooglemapsComponent } from '../tur/googlemaps/googlemaps.component';
 import { VideoComponent } from '../video/video/video.component';
 import { PlaylistComponent } from '../videos/playlist/playlist.component';
+import { OverviewComponent } from '../aurora/overview/overview.component';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'video/:id', component: VideoComponent },
   { path: 'videos/playlist/:id', component: PlaylistComponent },
   { path: 'blog', component: BlogpostsComponent },
+  { path: 'aurora', component: OverviewComponent },
 
 ];
 

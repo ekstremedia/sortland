@@ -37,6 +37,10 @@
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="photos/search">Search</a>
 
       </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/aurora'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/aurora">Aurora forecast</a>
+
+      </li>
 
     </ul>
     <form class="form-inline my-2 my-lg-0">

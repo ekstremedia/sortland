@@ -26,6 +26,7 @@ import { PlaylistComponent } from './videos/playlist/playlist.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PhotomenyComponent } from './photo/photomeny/photomeny.component';
 import { BlogpostsComponent } from './blog/blogposts/blogposts.component';
+import { OverviewComponent } from './aurora/overview/overview.component';
 
 // from https://angular.io/guide/router
 
@@ -46,7 +47,8 @@ import { BlogpostsComponent } from './blog/blogposts/blogposts.component';
     VideomenyComponent,
     PlaylistComponent,
     PhotomenyComponent,
-    BlogpostsComponent
+    BlogpostsComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserAnimationsModule,

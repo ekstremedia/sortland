@@ -163,4 +163,28 @@ export class DataService {
 
   /// BLOG END
 
+
+  /// AURORA START
+
+  noaaKindexByMinute() {
+  const seturl = 'http://services.swpc.noaa.gov/products/noaa-estimated-planetary-k-index-1-minute.json';
+    return this.http.get(seturl).pipe(
+      data => data
+    );
+  }
+  noaaKindex() {
+  const seturl = 'http://services.swpc.noaa.gov/products/noaa-planetary-k-index.json';
+    return this.http.get(seturl).pipe(
+      data => data
+    );
+  }
+  noaaKindexForecast() {
+  const seturl = 'http://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json';
+    return this.http.get(seturl).pipe(
+      data => data
+    );
+  }
+
+  /// AURORA END
+
 }
