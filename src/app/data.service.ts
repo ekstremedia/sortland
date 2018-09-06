@@ -251,7 +251,7 @@ slugify (text) {
 /// BEDRIFTER END
 
 v() {
-  return '0.0.3';
+  return '0.4';
 }
 
 }

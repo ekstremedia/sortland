@@ -1,0 +1,88 @@
+<div *ngIf="authService.isLoggedIn() && authService.currentUser" class="container">
+  <div class="row mt-3 pt-3">
+    <div class="col-12 text-center">
+      <h2>Velkommen tilbake,  {{ authService.currentUser['first_name'] }} </h2>
+    </div>
+  </div>
+  <div class="row mt-3 pt-3">
+      <div class="col-4 mx-auto">
+        <div class="row">
+          <div class="col">
+              <button  type="button" class="btn btn-danger w-100" type="submit"  (click)="authService.logout()">Logg deg ut</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+
+<div class="container" *ngIf="!authService.isLoggedIn()">
+
+  <div class="row mt-3 pt-3">
+    <div class="col-12 text-center">
+      <h2>Login</h2>
+    </div>
+  </div>
+  <div class="row" *ngIf="feilmelding">
+      <div class="col-6 mx-auto">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" data-ng-show="feilmelding !== null ">
+              <strong>Ka farsken!</strong> {{ feilmelding }}
+              <button type="button" class="close" aria-label="Close" (click)="feilmelding = null">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>        
+          
+      </div>
+    </div>
+  <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+    <div class="row mt-3 pt-3">
+      <div class="col-4 mx-auto">
+        <div class="row">
+          <div class="col-5 pt-1 text-muted">
+            <label for="brukernavn">Brukernavn</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <input type="text" formControlName="brukernavn" class="form-control text-primary" name="brukernavn" id="brukernavn"
+                aria-describedby="bsName" placeholder="fdvhuset">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 mx-auto">
+        <div class="row">
+          <div class="col-5 pt-1 text-muted">
+            <label for="passord">Passord</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <input type="password" formControlName="passord" class="form-control text-primary" name="passord" id="passord"
+                aria-describedby="passord" placeholder="fdvhuset">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 mx-auto">
+        <div class="row">
+          <div class="col-5"></div>
+          <div class="col">
+            <div class="form-group ">
+              <button [disabled]="user.invalid" type="button" class="btn btn-success w-100" type="submit">Logg inn</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+
+</div>

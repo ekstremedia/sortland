@@ -12,7 +12,7 @@ import { FeedComponent } from './photo/feed/feed.component';
 import { SetComponent } from './photo/set/set.component';
 import { PhotoComponent } from './photo/photo/photo.component';
 import { SearchComponent } from './photo/search/search.component';
-import { FormsModule } from '@angular/forms';
+import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { GooglemapsComponent } from './tur/googlemaps/googlemaps.component';
 import { AllComponent } from './videos/all/all.component';
 import { VideoComponent } from './video/video/video.component';
@@ -33,6 +33,9 @@ import { SmbComponent } from './business/smb/smb.component';
 import { AddbusinessComponent } from './business/addbusiness/addbusiness.component';
 import { AddbissComponent } from './business/addbiss/addbiss.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './user/login/login.component';
+import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 // from https://angular.io/guide/router
 
@@ -59,16 +62,20 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BusinessComponent,
     SmbComponent,
     AddbusinessComponent,
-    AddbissComponent
+    AddbissComponent,
+    LoginComponent
   ],
   imports: [
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
     BrowserModule,
+    CommonModule,
     YoutubePlayerModule,
+    HttpModule,
     HttpClientJsonpModule,
     UiModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NgxMasonryModule,
     FormsModule,

@@ -21,6 +21,9 @@ import { VideoComponent } from '../video/video/video.component';
 import { PlaylistComponent } from '../videos/playlist/playlist.component';
 import { OverviewComponent } from '../aurora/overview/overview.component';
 import { AllbusinessesComponent } from '../business/allbusinesses/allbusinesses.component';
+import { YoutubePlayerService } from 'ngx-youtube-player/src/ngx-youtube-player';
+import { LoginComponent } from '../user/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -40,6 +43,7 @@ const appRoutes: Routes = [
   { path: 'bedrifter', component: AllbusinessesComponent },
   { path: 'bedrift/:slug', component: BusinessComponent },
   { path: 'leggtil/bedrift', component: AddbissComponent },
+  { path: 'login', component: LoginComponent } 
 
 ];
 
@@ -48,6 +52,8 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule ,
+    FormsModule
   ],
   declarations: [LayoutComponent, HeaderComponent, FooterComponent],
   exports: [LayoutComponent]

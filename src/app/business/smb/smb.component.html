@@ -1,6 +1,6 @@
 <div *ngIf="business">
     <h1>{{business.title}}</h1>
-    <a href="/sortland/backend/ekstremedia/nesthus/business/update/{{business.id}}">Rediger</a>
+    <a href="/sortland/backend/ekstremedia/nesthus/business/update/{{business.id}}" *ngIf="authService.isLoggedIn()">Rediger</a>
 
   <ngb-tabset>
 

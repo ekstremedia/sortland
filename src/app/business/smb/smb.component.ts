@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SmbComponent implements OnInit {
   @Input() business: any;
   setId: any;
-  constructor(private data: DataService, private route: ActivatedRoute) { this.route.params.subscribe(params => this.setId = params); }
+  constructor(private data: DataService, private route: ActivatedRoute, public authService: AuthService) { this.route.params.subscribe(params => this.setId = params); }
 
   ngOnInit() {
     this.route.paramMap
