@@ -132,9 +132,6 @@ export class DataService {
 
   /// FLICKR END
 
-  v() {
-    return '0.0.3';
-  }
 
   log(input,input2?) {
     if (environment.production === false) {
@@ -151,7 +148,7 @@ export class DataService {
   getBlogPosts() {
     let seturl = null;
     if (environment.production === false) {
-      seturl = 'http://localhost:81/nesthus/api/blogPosts';
+      seturl = 'http://localhost:81/sortland/api/blogPosts';
     } else {
       seturl = 'api/blogPosts';
     }
@@ -186,5 +183,75 @@ export class DataService {
   }
 
   /// AURORA END
+
+/// BEDRIFTER START
+
+getBusinesses() {
+  let seturl = null;
+  if (environment.production === false) {
+    seturl = 'http://localhost:81/sortland/api/allBusinesses';
+  } else {
+    seturl = 'api/allBusinesses';
+  }
+  return this.http.get(seturl).pipe(
+    data => data
+  );
+}
+
+getBusiness(slug) {
+  let seturl = null;
+  if (environment.production === false) {
+    seturl = 'http://localhost:81/sortland/api/business/'+slug;
+  } else {
+    seturl = 'api/business/'+slug;
+  }
+  return this.http.get(seturl).pipe(
+    data => data
+  );
+}
+getGoogleBusiness(slug) {
+  let seturl = null;
+  if (environment.production === false) {
+    seturl = 'http://localhost:81/sortland/api/googleId/'+slug;
+  } else {
+    seturl = 'api/googleId/'+slug;
+  }
+  return this.http.get(seturl).pipe(
+    data => data
+  );
+}
+lagreBedrift(gid) {
+  let seturl = null;
+  if (environment.production === false) {
+    seturl = 'http://localhost:81/sortland/api/lagreBedrift/'+gid;
+  } else {
+    seturl = 'api/lagreBedrift/'+gid;
+  }
+  return this.http.get(seturl).pipe(
+    data => data
+  );
+}
+slugify (text) {
+  if (text) {
+ const a = 'ÆØÅæøåàáäâèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;';
+   const b = 'aoaaoaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------';
+ const p = new RegExp(a.split('').join('|'), 'g');
+ return text.toString().toLowerCase()
+   .replace(/\s+/g, '-')           // Replace spaces with -
+   .replace(p, c =>
+       b.charAt(a.indexOf(c)))     // Replace special chars
+   .replace(/&/g, '-and-')         // Replace & with 'and'
+   .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+   .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+   .replace(/^-+/, '')             // Trim - from start of text
+   .replace(/-+$/, '');             // Trim - from end of text
+}
+}
+
+/// BEDRIFTER END
+
+v() {
+  return '0.0.3';
+}
 
 }

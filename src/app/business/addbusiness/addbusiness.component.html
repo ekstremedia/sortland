@@ -1,0 +1,248 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Legg til ny bedrift</h2>
+    </div>
+  </div>
+  <form>
+
+    <div class="row">
+      <div class="col-5"><label for="googleId">Fyll ut data frå ein <a href="https://developers.google.com/places/place-id"
+            target="_blank">Google-ID</a>: </label></div>
+      <div class="col-4">
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="googleId" id="googleId" aria-describedby="helpId"
+            placeholder="ChIJLYBL5-dF3EURcYBaetjIg0E" [(ngModel)]="googleIdBoks">
+        </div>
+        <span class="text-danger" *ngIf="!bsFound">Dette er ikke en gyldig google-ID!</span>
+      </div>
+      <div class="col-1">
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" (click)="check()">Hent</button>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="form-group">
+          <button type="button" class="btn btn-danger" (click)="empty()">Tøm skjema</button>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row" *ngIf="(business && business.name) || bsName">
+      <div class="col-1">
+        <img *ngIf="bsImg" [src]="bsImg" width="32">
+      </div>
+      <div class="col-11">
+        <div class="form-group">
+          <button type="button" class="btn btn-success float-right" (click)="check()">Lagre <b>{{bsName}}</b><br></button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label for="bsName">Namn på bedrift</label>
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="bsName" id="bsName" aria-describedby="bsName"
+            placeholder="Svolvær Foto og Timelapse AS" [(ngModel)]="bsName">
+        </div>
+      </div>
+      <div class="col-6">
+        <label for="bsSlug">Bedriftnamn-slug</label>
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="bsSlug" id="bsSlug" aria-describedby="bsSlug"
+            placeholder="svolvaer-foto-og-timelapse-as" [(ngModel)]="bsSlug">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-6">
+        <label for="bsNr">Telefon-nr</label>
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="bsNr" id="bsNr" aria-describedby="helpIdName"
+            placeholder="+47 77345678" [(ngModel)]="bsNr">
+        </div>
+      </div>
+      <div class="col-6">
+        <label for="bsAddress">Addresse</label>
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="bsAddress" id="bsAddress" aria-describedby="bsAddress"
+            placeholder="Kjøpmannsgata 22, 8400 Sortland, Noreg" [(ngModel)]="bsAddress">
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-6">
+        <label for="bsFax">Fax</label>
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="bsFax" id="bsFax" aria-describedby="bsFax"
+            placeholder="+47 77345679" [(ngModel)]="bsFax">
+        </div>
+      </div>
+      <div class="col-6">
+          <label for="bsTypes">Types</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsTypes" id="bsTypes" aria-describedby="helpIdSName"
+              placeholder="restaurant" [(ngModel)]="bsTypes">
+          </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-6">
+        <label for="bsEmail">Epost</label>
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="bsEmail" id="bsEmail" aria-describedby="bsEmail"
+            placeholder="epost@side.no" [(ngModel)]="bsEmail">
+        </div>
+      </div>
+      <div class="col-6">
+          <label for="bsHomepage">Hjemmeside</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsHomepage" id="bsHomepage" aria-describedby="bsHomepage"
+              placeholder="http://www.side.no" [(ngModel)]="bsHomepage">
+          </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-3">
+        <label for="bsLatitude">Latitude</label>
+        <div class="form-group">
+          <input type="text" class="form-control text-primary" name="bsLatitude" id="bsLatitude" aria-describedby="bsLatitude"
+            placeholder="68.6935718" [(ngModel)]="bsLatitude">
+        </div>
+      </div>
+      <div class="col-3">
+          <label for="bsLongitude">Longitude</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsLongitude" id="bsLongitude" aria-describedby="bsLongitude"
+              placeholder="15.4145185" [(ngModel)]="bsLongitude">
+          </div>
+        </div>
+        <div class="col-5">
+            <label for="bsMapUrl">Map URL</label>
+            <div class="form-group">
+              <input type="text" class="form-control text-primary" name="bsMapUrl" id="bsMapUrl" aria-describedby="bsMapUrl"
+                placeholder="https://maps.google.com/?cid=4720837666505654385" [(ngModel)]="bsMapUrl">
+            </div>
+          </div>
+      <div class="col-1">
+          <label for="bsRating">Rating</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsRating" id="bsRating" aria-describedby="bsRating"
+              placeholder="5" [(ngModel)]="bsRating">
+          </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-2">
+          <b>Mandag</b><br>
+          <label for="bs_nr">Åpner</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsOpenMon" id="bsOpenMon" aria-describedby="bsOpenMon"
+              placeholder="" [(ngModel)]="bsOpenMon">
+          </div>
+          <label for="bs_address">Stenger</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsCloseMon" id="bsCloseMon" aria-describedby="bsCloseMon"
+              placeholder="" [(ngModel)]="bsCloseMon">
+          </div>
+        </div>
+  
+        <div class="col-2">
+          <b>Tirsdag</b><br>
+          <label for="bs_nr">Åpner</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsOpenTue" id="bsOpenTue" aria-describedby="bsOpenTue"
+              placeholder="" [(ngModel)]="bsOpenTue">
+          </div>
+          <label for="bs_address">Stenger</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsCloseTue" id="bsCloseTue" aria-describedby="bsCloseTue"
+              placeholder="" [(ngModel)]="bsCloseTue">
+          </div>
+        </div>
+  
+        <div class="col-2">
+          <b>Onsdag</b><br>
+          <label for="bs_nr">Åpner</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsOpenWed" id="bsOpenWed" aria-describedby="bsOpenWed"
+              placeholder="" [(ngModel)]="bsOpenWed">
+          </div>
+          <label for="bs_address">Stenger</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsCloseWed" id="bsCloseWed" aria-describedby="bsCloseWed"
+              placeholder="" [(ngModel)]="bsCloseWed">
+          </div>
+        </div>
+        <div class="col-2">
+          <b>Torsdag</b><br>
+          <label for="bs_nr">Åpner</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsOpenThu" id="bsOpenThu" aria-describedby="bsOpenThu"
+              placeholder="" [(ngModel)]="bsOpenThu">
+          </div>
+          <label for="bs_address">Stenger</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsCloseThu" id="bsCloseThu" aria-describedby="bsCloseThu"
+              placeholder="" [(ngModel)]="bsCloseThu">
+          </div>
+        </div>
+        <div class="col-2">
+          <b>Fredag</b><br>
+          <label for="bs_nr">Åpner</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsOpenFri" id="bsOpenFri" aria-describedby="bsOpenFri"
+              placeholder="" [(ngModel)]="bsOpenFri">
+          </div>
+          <label for="bs_address">Stenger</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsCloseFri" id="bsCloseFri" aria-describedby="bsCloseFri"
+              placeholder="" [(ngModel)]="bsCloseFri">
+          </div>
+        </div>
+        <div class="col-1">
+          <b>Lørdag</b><br>
+          <label for="bs_nr">Åpner</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsOpenSat" id="bsOpenSat" aria-describedby="bsOpenSat"
+              placeholder="" [(ngModel)]="bsOpenSat">
+          </div>
+          <label for="bs_address">Stenger</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsCloseSat" id="bsCloseSat" aria-describedby="bsCloseSat"
+              placeholder="" [(ngModel)]="bsCloseSat">
+          </div>
+        </div>
+        <div class="col-1">
+          <b>Søndag</b><br>
+          <label for="bs_nr">Åpner</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsOpenSun" id="bsOpenSun" aria-describedby="bsOpenSun"
+              placeholder="" [(ngModel)]="bsOpenSun">
+          </div>
+          <label for="bs_address">Stenger</label>
+          <div class="form-group">
+            <input type="text" class="form-control text-primary" name="bsCloseSun" id="bsCloseSun" aria-describedby="bsCloseSun"
+              placeholder="" [(ngModel)]="bsCloseSun">
+          </div>
+        </div>
+  
+      </div>
+
+  </form>
+
+</div>

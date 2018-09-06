@@ -1,0 +1,76 @@
+<div *ngIf="business">
+    <h1>{{business.title}}</h1>
+    <a href="/sortland/backend/ekstremedia/nesthus/business/update/{{business.id}}">Rediger</a>
+
+  <ngb-tabset>
+
+    <ngb-tab title="Generell info">
+      <ng-template ngbTabContent>
+
+        <div *ngIf="business.business_logo && business.business_logo[0]">
+          <img [src]="business.business_logo[0].path" width="200">
+        </div>
+        <div *ngIf="business.phone">
+          Tlf: <a href="tel:{{business.phone}}">{{business.phone}}</a>
+        </div>
+        <div *ngIf="business.google_id">
+          Google_ID: {{business.google_id}}
+        </div>
+        <div *ngIf="business.homepage">
+          Web: <a href="{{business.homepage}}" target="_blank">{{business.homepage}}</a>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>Åpningstider</ng-template>
+      <ng-template ngbTabContent>
+        <table class="table table-hover table-striped">
+          <thead class="thead-inverse|thead-default">
+            <tr>
+              <th>Dag</th>
+              <th>Åpner</th>
+              <th>Stenger</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="(business.mon_open!==null && business.mon_closed!==null)">
+                <td>Mandag</td>
+                <td>{{ business.mon_open }}</td>
+                <td>{{ business.mon_closed }}</td>
+              </tr>
+              <tr *ngIf="(business.tue_open!==null && business.tue_closed!==null)">
+                <td>Tirsdag</td>
+                <td>{{ business.tue_open }}</td>
+                <td>{{ business.tue_closed }}</td>
+              </tr>
+              <tr *ngIf="(business.wed_open!==null && business.wed_closed!==null)">
+                <td>Onsdag</td>
+                <td>{{ business.wed_open }}</td>
+                <td>{{ business.wed_closed }}</td>
+              </tr>
+              <tr *ngIf="(business.thu_open!==null && business.thu_closed!==null)">
+                <td>Torsdag</td>
+                <td>{{ business.thu_open }}</td>
+                <td>{{ business.thu_closed }}</td>
+              </tr>
+              <tr *ngIf="(business.fri_open!==null && business.fri_closed!==null)">
+                <td>Fredag</td>
+                <td>{{ business.fri_open }}</td>
+                <td>{{ business.fri_closed }}</td>
+              </tr>
+              <tr *ngIf="(business.sat_open!==null && business.sat_closed!==null)">
+                <td>Lørdag</td>
+                <td>{{ business.sat_open }}</td>
+                <td>{{ business.sat_closed }}</td>
+              </tr>
+              <tr *ngIf="(business.sun_open!==null && business.sun_closed!==null)">
+                <td>Søndag</td>
+                <td>{{ business.sun_open }}</td>
+                <td>{{ business.sun_closed }}</td>
+              </tr>
+            </tbody>
+        </table>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

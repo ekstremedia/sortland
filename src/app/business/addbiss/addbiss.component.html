@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Legg til bedrift</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5"><label for="googleId">Fyll ut data frå ein <a href="https://developers.google.com/places/place-id"
+          target="_blank">Google-ID</a>: </label></div>
+    <div class="col-4">
+      <div class="form-group">
+        <input type="text" class="form-control text-primary" name="googleId" id="googleId" aria-describedby="helpId"
+          placeholder="ChIJLYBL5-dF3EURcYBaetjIg0E" [(ngModel)]="googleIdBoks">
+      </div>
+      <span class="text-danger" *ngIf="!bsValid">Dette er ikke en gyldig google-ID!</span>
+    </div>
+    <div class="col-2">
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="check()">Hent bedrift</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <h3 class="text-danger" *ngIf="finnes=='ja'">Denne bedriften ligger allerede i databasen: </h3>
+    <h3 class="text-success" *ngIf="finnes=='nei'">Denne bedriften ble lagret: </h3>
+    <div class="col-12">
+      <app-smb [business]="business" *ngIf="business"></app-smb>
+    </div>
+  </div>
+
+
+</div>

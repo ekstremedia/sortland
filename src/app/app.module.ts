@@ -27,6 +27,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PhotomenyComponent } from './photo/photomeny/photomeny.component';
 import { BlogpostsComponent } from './blog/blogposts/blogposts.component';
 import { OverviewComponent } from './aurora/overview/overview.component';
+import { AllbusinessesComponent } from './business/allbusinesses/allbusinesses.component';
+import { BusinessComponent } from './business/business/business.component';
+import { SmbComponent } from './business/smb/smb.component';
+import { AddbusinessComponent } from './business/addbusiness/addbusiness.component';
+import { AddbissComponent } from './business/addbiss/addbiss.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // from https://angular.io/guide/router
 
@@ -48,9 +54,15 @@ import { OverviewComponent } from './aurora/overview/overview.component';
     PlaylistComponent,
     PhotomenyComponent,
     BlogpostsComponent,
-    OverviewComponent
+    OverviewComponent,
+    AllbusinessesComponent,
+    BusinessComponent,
+    SmbComponent,
+    AddbusinessComponent,
+    AddbissComponent
   ],
   imports: [
+    NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
     BrowserModule,

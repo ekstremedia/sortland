@@ -3,14 +3,23 @@
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" routerLink="">Nesthus.no {{v}}</a>
+  <a class="navbar-brand" routerLink="">Sortland Byportal {{v}}</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item" [ngClass]="{active: this.router.url==='/welcome'}">
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/welcome">Welcome</a>
       </li>
-      <li class="nav-item" [ngClass]="{active: this.router.url==='/blog'}">
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/bedrifter'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/bedrifter">Bedrifter</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/bedrift/fdvhuset-as'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/bedrift/fdvhuset-as">FDVhuset</a>
+      </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/leggtil/bedrift'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/leggtil/bedrift">Legg til bedrift</a>
+      </li>
+      <!-- <li class="nav-item" [ngClass]="{active: this.router.url==='/blog'}">
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/blog">Blog</a>
       </li>
       <li class="nav-item" [ngClass]="{active: this.router.url==='/videos/all'}">
@@ -36,7 +45,7 @@
       <li class="nav-item" [ngClass]="{active: this.router.url==='/photos/search'}">
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="photos/search">Search</a>
 
-      </li>
+      </li> -->
       <li class="nav-item" [ngClass]="{active: this.router.url==='/aurora'}">
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/aurora">Aurora forecast</a>
 

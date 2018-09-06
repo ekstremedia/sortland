@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">Alle bedrifter: </div>
+    <div *ngIf="alleBedrifter">
+      <div *ngFor="let business of alleBedrifter">
+        <a routerLink="/bedrift/{{business.slug}}">{{ business.title }}</a>
+
+        <span *ngIf="business.business_logo && business.business_logo[0]">
+          <img [src]="business.business_logo[0].path" width="20">
+        </span>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
