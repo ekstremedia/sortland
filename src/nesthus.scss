@@ -1,74 +1,93 @@
 /* You can add global styles to this file, and also import other style files */
-
 $twitter: rgb(29, 161, 242);
-$facebook:  rgb(59, 89, 152);
+$facebook: rgb(59, 89, 152);
 $youtube: rgb(219, 68, 55);
 $github: rgb(255, 255, 255);
 $instagram: rgb(230, 36, 204);
-
 $vars: 0px 0px 8px rgba(101, 112, 255, 0.973);
 $trans: all .2s ease-in-out;
 $ligtenvar: 20;
 $darkbg: rgb(28, 27, 32);
 $text-title: rgb(26, 224, 59);
-$wt: rgb(255,255,255);
+$wt: rgb(255, 255, 255);
+$photoborder: 1px solid rgba(100, 100, 100, 0.4);
+$darktext: rgba(148, 148, 148, 0.6);
+$infotext: rgb(194, 194, 194);
+$infotext-light: rgba(194, 194, 194, 0.5);
 
-$photoborder: 1px solid rgba(100,100,100,0.4);
-$darktext:  rgba(148, 148, 148, 0.6);
-$infotext:  rgb(194, 194, 194);
-$infotext-light:  rgba(194, 194, 194,0.5);
 .loading-color {
-    color: hotpink;
+  color: hotpink;
 }
 
 html {
-    overflow-y: scroll;
-  }
-.video-container {
-	position:relative;
-	padding-bottom:54%;
-	padding-top:30px;
-	height:0;
-	overflow:hidden;
+  overflow-y: scroll;
 }
 
-.video-container iframe, .video-container object, .video-container embed {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
+.video-container {
+  position: relative;
+  padding-bottom: 54%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    background-color: $darkbg;
-    color: $wt;
-}
-.hovedcont {
-    min-height: 100vh;
-    height:auto !important;
-}
-.photo {
-    border: $photoborder;
-    max-height: 80vh;
-}
-.exif-left {
-    color: $darktext;
-}
-.exif-right {
-    color: $infotext;
+  background-color: $darkbg;
+  color: $wt;
 }
 
-.bt { font-weight: bold;}
-.tb { font-weight: bold;}
+.hovedcont {
+  min-height: 100vh;
+  height: auto !important;
+}
+
+.photo {
+  border: $photoborder;
+  max-height: 80vh;
+}
+
+.exif-left {
+  color: $darktext;
+}
+
+.exif-right {
+  color: $infotext;
+}
+
+.bt {
+  font-weight: bold;
+}
+
+.tb {
+  font-weight: bold;
+}
+
 .text-title {
-    color: $text-title;
+  color: $text-title;
 }
+
 .text-lighter {
-    color: lighten($color: $infotext-light, $amount: 20)
+  color: lighten($color: $infotext-light, $amount: 20)
 }
-.masonry-item { width: 260px; }
-.masonry-item-yt { width: 330px; }
+
+.masonry-item {
+  width: 260px;
+}
+
+.masonry-item-yt {
+  width: 330px;
+}
+
 // .animgflickImgBox {
 //     opacity: .8;
 // }
@@ -77,105 +96,120 @@ body {
 //     opacity: 1 !important ;
 // }
 .flickImgBox {
-     min-height: 159px; 
-     
-     img {
-        max-width: 200px;
-        border: 1px solid rgba($color: #ccc, $alpha: 0.3);
-     }
-     img:hover {
-        border: 1px solid rgba($color: blue, $alpha: 1);
-     }
- }
+  min-height: 159px;
+
+  img {
+    max-width: 200px;
+    border: 1px solid rgba($color: #ccc, $alpha: 0.3);
+  }
+
+  img:hover {
+    border: 1px solid rgba($color: blue, $alpha: 1);
+  }
+}
 
 .tweetfarge {
-    color: $twitter;
-    transition: $trans;
+  color: $twitter;
+  transition: $trans;
 }
+
 .tweetfarge:hover {
-     color: lighten($color: $twitter, $amount: $ligtenvar);
-     text-shadow: $vars;
- }
-.instagram {
-    color: $instagram;
-    transition: $trans;
+  color: lighten($color: $twitter, $amount: $ligtenvar);
+  text-shadow: $vars;
 }
+
+.instagram {
+  color: $instagram;
+  transition: $trans;
+}
+
 .instagram:hover {
-     color: lighten($color: $instagram, $amount: $ligtenvar);
-     text-shadow: $vars;
- }
+  color: lighten($color: $instagram, $amount: $ligtenvar);
+  text-shadow: $vars;
+}
 
 .fbfarge {
-     color:$facebook;
-     transition: $trans;
+  color: $facebook;
+  transition: $trans;
 }
+
 .fbfarge:hover {
-    color: lighten($color: $facebook, $amount: $ligtenvar);
-    text-shadow: $vars;
- }
+  color: lighten($color: $facebook, $amount: $ligtenvar);
+  text-shadow: $vars;
+}
+
 .ytfarge {
-     color:$youtube;
-     transition: $trans;
- }
+  color: $youtube;
+  transition: $trans;
+}
+
 .ytfarge:hover {
-    color: lighten($color: $youtube, $amount: $ligtenvar);
-    text-shadow: $vars;
+  color: lighten($color: $youtube, $amount: $ligtenvar);
+  text-shadow: $vars;
 }
+
 .github {
-    color:$github;
-    transition: $trans;
+  color: $github;
+  transition: $trans;
 }
+
 .github:hover {
-   color: lighten($color: $github, $amount: $ligtenvar);
-   text-shadow: $vars;
+  color: lighten($color: $github, $amount: $ligtenvar);
+  text-shadow: $vars;
 }
+
 .cf {
-    float: none; margin: 0 auto;
+  float: none;
+  margin: 0 auto;
 }
+
 .red {
-    background-color: #f00;
+  background-color: #f00;
 }
+
 .meny-links {
-    color: hotpink;
-    text-decoration-line:  none;
-    border-bottom: 1px solid transparent;
-    transition: 
+  color: hotpink;
+  text-decoration-line: none;
+  border-bottom: 1px solid transparent;
+  transition:
     border-bottom 450ms ease-in-out,
     color 250ms ease-out;
 }
+
 .meny-links:hover {
-    color: rgb(255, 191, 223);
-    text-decoration-line:  none;
-    border-bottom: 1px solid rgba(75, 255, 4, 0.8);
+  color: rgb(255, 191, 223);
+  text-decoration-line: none;
+  border-bottom: 1px solid rgba(75, 255, 4, 0.8);
 }
 
 .sec-links {
-    color: hotpink;
-    text-decoration-line:  none;
-    border-bottom: 1px solid transparent;
-    transition: 
+  color: hotpink;
+  text-decoration-line: none;
+  border-bottom: 1px solid transparent;
+  transition:
     border-bottom 450ms ease-in-out,
     color 250ms ease-out;
 }
+
 .sec-links:hover {
-    color: rgb(255, 191, 223);
-    text-decoration-line:  none;
-    border-bottom: 1px solid rgba(75, 255, 4, 0.8);
+  color: rgb(255, 191, 223);
+  text-decoration-line: none;
+  border-bottom: 1px solid rgba(75, 255, 4, 0.8);
 }
+
 .sec-links img {
-    border: 1px solid transparent;
-    transition: 
+  border: 1px solid transparent;
+  transition:
     border 250ms ease-in;
 }
+
 .sec-links:hover img {
-    border: 1px solid hotpink;
+  border: 1px solid hotpink;
 }
 
 $kGreen: #00FF00;
 $kYellow: #FFF200;
 $kRed: #FF0000;
-
-
 $kG0: #FF0000;
 $kG1: #FF4600;
 $kG2: #FF8C00;
@@ -186,57 +220,154 @@ $kG6: #9FFF00;
 $kG7: #7CFF00;
 $kG8: #58FF00;
 
-
-
 .kIndex-0 {
-    color: $kG0;
+  color: $kG0;
 }
+
 .kIndex-1 {
-    color: $kG1;
+  color: $kG1;
 }
+
 .kIndex-2 {
-    color: $kG2;
+  color: $kG2;
 }
+
 .kIndex-3 {
-    color: $kG3;
+  color: $kG3;
 }
+
 .kIndex-4 {
-    color: $kG4;
+  color: $kG4;
 }
+
 .kIndex-5 {
-    color: $kG5;
+  color: $kG5;
 }
+
 .kIndex-6 {
-    color: $kG6;
+  color: $kG6;
 }
+
 .kIndex-7 {
-    color: $kG7;
+  color: $kG7;
 }
+
 .kIndex-8 {
-    color: $kG8;
+  color: $kG8;
 }
+
 .kIndex-9 {
-    color: $kG8;
+  color: $kG8;
 }
+
 .kIndex-10 {
-    color: $kG8;
+  color: $kG8;
 }
+
 .app-ct {
-    background: rgba(0,0,0,0.85);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;    
-    height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
+
 .app-bg {
-    background-image: url("/assets/melbu.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+  background-image: url("/assets/melbu.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
+
 .cp {
-    cursor: pointer;
+  cursor: pointer;
 }
+
+$fdv-1: #13a2ea;
+$fdv-2: #4265aa;
+$fdv-3: #a4a5a7;
+
+.fdv-1 {
+  color: $fdv-1;
+}
+
+.fdv-2 {
+  color: $fdv-2;
+}
+
+.fdv-3 {
+  color: $fdv-3;
+}
+
+.audiowide {
+  font-family: 'Audiowide', cursive;
+}
+
+.ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.fontz {
+  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Audiowide', cursive;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Concert One', cursive;
+  font-family: 'Montez', cursive;
+  font-family: 'Merienda One', cursive;
+  font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+.encode {
+  font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+.biglinks {
+  color: $fdv-1;
+  transition: 
+  color 0.4s ease-in-out,
+//   border-bottom 0.4s ease-in-out,
+  text-shadow 0.4s ease-in-out;
+  text-decoration: none;
+  padding-bottom: 2px;
+//   border-bottom: 1px solid transparentize($fdv-2,1);
+}
+
+.biglinks:hover {
+  color: lighten($fdv-1,30);
+  text-decoration: none;
+  text-shadow: 0px 0px 6px $fdv-1;
+//   border-bottom: 1px solid transparentize($fdv-1,0.6);
+
+}
+.biglinks:active {
+  color: lighten($fdv-1,100);
+  text-decoration: none;
+  text-shadow: 0px 0px 6px $fdv-1;
+}
+.bigtext {
+    font-size: 2.5em;
+}
+.infotittel {
+    font-weight: bold;
+    color: lighten($fdv-2,10);
+}
+.star {
+    position: relative;
+    display: inline-block;
+    color: #d3d3d3;
+  }
+  .full {
+    color: $fdv-1;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: $fdv-1;
+  }
+  .cap {
+    text-transform: capitalize;
+  }

@@ -36,6 +36,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './user/login/login.component';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { BisstypesComponent } from './business/bisstypes/bisstypes.component';
 
 // from https://angular.io/guide/router
 
@@ -63,7 +64,8 @@ import { HttpModule } from '@angular/http';
     SmbComponent,
     AddbusinessComponent,
     AddbissComponent,
-    LoginComponent
+    LoginComponent,
+    BisstypesComponent
   ],
   imports: [
     NgbModule,

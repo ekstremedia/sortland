@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 
@@ -8,12 +9,12 @@ import { DataService } from '../../data.service';
 })
 export class AddbissComponent implements OnInit {
 
-  constructor(public data: DataService) { }
+  constructor(public data: DataService, public authService: AuthService) { }
   bsValid; googleIdBoks; finnes; business: any;
   ngOnInit() {
     this.bsValid = true;
     this.finnes = false;
-    this.googleIdBoks = 'ChIJLYBL5-dF3EURcYBaetjIg0E';
+    this.googleIdBoks = '';
   }
 
   clear() {
@@ -33,9 +34,9 @@ export class AddbissComponent implements OnInit {
           }
           this.data.log(data);
           if (data['finnes'] === 'ja') {
-            this.finnes = "ja";
+            this.finnes = 'ja';
           } else {
-            this.finnes = "nei";
+            this.finnes = 'nei';
           }
           if (data['bedrift']) {
             this.business = data['bedrift'];

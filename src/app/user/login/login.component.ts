@@ -23,21 +23,14 @@ export class LoginComponent implements OnInit {
     this.user = this.fb.group({
       brukernavn: [this.brukernavn, Validators.required],
       passord: [this.passord, Validators.required]
-        // email: ['terjen@gmail.com', Validators.required],
-        // password: ['third', Validators.required]
     });
   }
 
   onSubmit({ value, valid }: { value: User, valid: boolean }) {
-    // console.log(value);
-    // this.signIn(value);
-  //  this.signIn(value);
     this.tryAuth(value);
     console.log('LOGIN', value);
   }
   tryAuth(credentials) {
-        // this.authService.octLogin(credentials);
-
     this.authService.octLogin(credentials).subscribe(result => {
       const svar = result.json();
       if (svar['error']) {
@@ -45,24 +38,9 @@ export class LoginComponent implements OnInit {
       this.data.log('error!', svar['error']);
       this.feilmelding = svar['error'];
       } else {
-        // this.data.log('suksessfull innlogging',svar);
         this.feilmelding = null;
         this.authService.setUser(svar);
       }
-      // console.log(result);
-      // this.anim = true;
-//       if (result.error) {
-//         // this.invalidLogin = true;
-//         // this.invalidLoginMsg = result.error;
-//         // console.log(result);
-//       } else {
-//         // this.ldRef.MatDialogRef.close
-//         // console.log(result);
-//         // console.log(this.ldRef);
-// // '        this.dialog.closeAll();
-// //       this.invalidLogin = false;
-// //       this.invalidLoginMsg = null;'
-//       }
     });
 
   }

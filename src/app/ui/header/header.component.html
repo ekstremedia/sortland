@@ -3,21 +3,21 @@
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" routerLink="">Sortland Byportal {{v}}</a>
+  <a class="navbar-brand" routerLink="">Sortland Byportal {{v}} </a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item" [ngClass]="{active: this.router.url==='/welcome'}">
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/welcome">Welcome</a>
       </li>
-      <li class="nav-item" [ngClass]="{active: this.router.url==='/bedrifter'}">
-        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/bedrifter">Bedrifter</a>
+      <li class="nav-item" [ngClass]="{active: (this.router.url==='/bedrifter' || this.router.url.substring(0,9)==='/bedrift/')}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/bedrifter">Bedrifter <i class="fas fa-building fdv-1"></i></a>
       </li>
       <li class="nav-item" [ngClass]="{active: this.router.url==='/bedrift/fdvhuset-as'}">
-        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/bedrift/fdvhuset-as">FDVhuset</a>
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/bedrift/fdvhuset-as">FDVhuset <i class="fdv-1 fas fa-check fa-rotate-270 "></i></a>
       </li>
-      <li class="nav-item" [ngClass]="{active: this.router.url==='/leggtil/bedrift'}">
-        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/leggtil/bedrift">Legg til bedrift</a>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/leggtil/bedrift'}" *ngIf="authService.isLoggedIn() && authService.currentUser">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/leggtil/bedrift">Legg til bedrift <i class="far fa-plus-square text-success"></i></a>
       </li> 
 
       <!-- <li class="nav-item" [ngClass]="{active: this.router.url==='/blog'}">
@@ -45,18 +45,17 @@
       </li>
       <li class="nav-item" [ngClass]="{active: this.router.url==='/photos/search'}">
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="photos/search">Search</a>
-
+ 
       </li> -->
       <li class="nav-item" [ngClass]="{active: this.router.url==='/aurora'}">
-        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/aurora">Aurora forecast</a>
-
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/aurora">Aurora forecast <i class="fas fa-map align-middle" style="color: lime;"></i> </a>
       </li>
       <li class="nav-item" [ngClass]="{active: this.router.url==='/login'}" *ngIf="!authService.isLoggedIn()">
-        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/login">Logg inn <i class="fas fa-sign-in-alt"></i></a>
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/login">Logg inn <i class="fas fa-sign-in-alt align-middle text-success"></i></a>
       </li>
 
       <li class="nav-item" [ngClass]="{active: this.router.url==='/logout'}" *ngIf="authService.isLoggedIn() && authService.currentUser">
-        <a class="nav-item nav-link cp" (click)="collapseNav()" (click)="authService.logout()">Logg ut <i class="fas fa-sign-out-alt"></i></a>
+        <a class="nav-item nav-link cp" (click)="collapseNav()" (click)="authService.logout()">Logg ut <i class="fas fa-sign-out-alt align-middle text-warning"></i></a>
       </li>
 
 
@@ -64,6 +63,10 @@
 
     </ul>
     <form class="form-inline my-2 my-lg-0">
+
+      <a class="nav-item nav-link" href="https://github.com/ekstremedia" target="_blank">
+        <i *ngIf="this.router.url==='/bedrift/fdvhuset-as'" class="fas fa-heart" style="color: hotpink;" data-toggle="tooltip" data-placement="right" title="Hire me!"></i>
+      </a>
       <a class="nav-item nav-link" href="https://github.com/ekstremedia" target="_blank">
         <i class="fab fa-github github"></i>
       </a>

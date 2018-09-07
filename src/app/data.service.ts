@@ -197,6 +197,17 @@ getBusinesses() {
     data => data
   );
 }
+getBusinessTypes(id) {
+  let seturl = null;
+  if (environment.production === false) {
+    seturl = 'http://localhost:81/sortland/api/allBusinessTypes/'+id;
+  } else {
+    seturl = 'api/allBusinessTypes/'+id;
+  }
+  return this.http.get(seturl).pipe(
+    data => data
+  );
+}
 
 getBusiness(slug) {
   let seturl = null;
@@ -220,6 +231,7 @@ getGoogleBusiness(slug) {
     data => data
   );
 }
+
 lagreBedrift(gid) {
   let seturl = null;
   if (environment.production === false) {

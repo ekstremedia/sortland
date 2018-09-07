@@ -1,4 +1,16 @@
-<div class="container">
+<div class="container" *ngIf="!authService.isLoggedIn()">
+  <div class="row">
+    <div class="col-8 text-center mx-auto p-3 m-3">
+      <div class="alert alert-danger">
+        <strong>Ingen tilgang!</strong> Du må være innlogget for å kunne se denne siden.
+      </div>
+      <app-login></app-login>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="authService.isLoggedIn() && authService.currentUser">
   <div class="row">
     <div class="col-12">
       <h1>Legg til bedrift</h1>
@@ -26,9 +38,9 @@
 
   <div class="row">
     <h3 class="text-danger" *ngIf="finnes=='ja'">Denne bedriften ligger allerede i databasen: </h3>
-    <h3 class="text-success" *ngIf="finnes=='nei'">Denne bedriften ble lagret: </h3>
+    <h3 class="text-success" *ngIf="finnes=='nei' && bsValid">Denne bedriften ble lagret: </h3>
     <div class="col-12">
-      <app-smb [business]="business" *ngIf="business"></app-smb>
+      <app-smb [business]="business" *ngIf="business && bsValid"></app-smb>
     </div>
   </div>
 

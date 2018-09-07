@@ -1,3 +1,4 @@
+import { BisstypesComponent } from './../business/bisstypes/bisstypes.component';
 import { AddbissComponent } from './../business/addbiss/addbiss.component';
 import { AddbusinessComponent } from './../business/addbusiness/addbusiness.component';
 import { BusinessComponent } from './../business/business/business.component';
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
   { path: 'bedrifter', component: AllbusinessesComponent },
   { path: 'bedrift/:slug', component: BusinessComponent },
   { path: 'leggtil/bedrift', component: AddbissComponent },
-  { path: 'login', component: LoginComponent } 
+  { path: 'login', component: LoginComponent },
+  { path: 'bedrifter/:id', component: BisstypesComponent }
 
 ];
 
