@@ -15,10 +15,30 @@
   <ngb-tabset>
 
     <ngb-tab>
-      <ng-template ngbTabTitle><span class="biglinks">Info <i class="fas fa-info-circle fdv-2"></i> </span></ng-template>
+      <ng-template ngbTabTitle><span class="biglinks"><span class="d-none d-sm-inline">Info </span> <i class="fas fa-info-circle fdv-2"></i>
+        </span></ng-template>
       <ng-template ngbTabContent>
         <div class="row">
           <div class="col-xl-7 col-lg-7 col-sm-7 col-xs-12 col-sm-12">
+
+              <div class="row pt-1 pl-3">
+                  <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Åpen nå</div>
+                  <div class="col-9">
+                    <div *ngIf="this.data.openNo(business)" class="openo">Ja</div>
+                    <div *ngIf="!this.data.openNo(business)">Nei</div>
+                  </div>
+                </div>            
+
+            <div class="row pt-1 pl-3" *ngIf="business.businesscategory && business.businesscategory[0]">
+              <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Kategori</div>
+              <div class="col-7">
+                <div *ngFor="let cat of business.businesscategory">
+                  <a routerLink="/kategori/{{cat.slug}}" class="biglinks encode">{{cat.title}}</a>
+                </div>
+              </div>
+            </div>
+
+
             <div class="row pt-3 pl-3" *ngIf="business.phone">
               <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Telefon</div>
               <div class="col-9">
@@ -62,27 +82,21 @@
               </div>
             </div>
 
+
             <div class="row pt-1 pl-3" *ngIf="business.type">
-              <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Kategori</div>
+              <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Type</div>
               <div class="col-6">
                 <div *ngFor="let type of business.type.split(', ')">
                   <a routerLink="/bedrifter/{{type}}" class="biglinks encode">{{type}}</a>
                 </div>
-
               </div>
               <div class="col-1">
                 <img *ngIf="business.icon" [src]="business.icon" width="32">
               </div>
             </div>
-            <div class="row pt-1 pl-3" *ngIf="google && google.opening_hours">
-              <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Åpen nå</div>
-              <div class="col-9">
-                <div *ngIf="google.opening_hours.open_now">Ja</div>
-                <div *ngIf="!google.opening_hours.open_now">Nei</div>
-              </div>
-            </div>
+
           </div>
-          <div class="col-xl-5 col-lg-5 col-sm-5 col-xs-12 col-sm-12 pt-3">
+          <div class="col-xl-5 col-lg-5 col-sm-5 col-xs-12 col-sm-12 pt-3  mx-auto text-center">
             <img *ngIf="business.business_logo && business.business_logo[0]" [src]="business.business_logo[0].path"
               class="img-fluid">
 
@@ -99,7 +113,7 @@
     <ngb-tab *ngIf="map_url">
       <ng-template ngbTabTitle>
         <span class="biglinks">
-            Kart <i class="fas fa-map-marker-alt fdv-2"></i> 
+          <span class="d-none d-sm-inline">Kart </span> <i class="fas fa-map-marker-alt fdv-2"></i>
         </span></ng-template>
       <ng-template ngbTabContent>
         <iframe [src]='mapURL()' *ngIf="map_url" class="w-100 mt-3" height="400">
@@ -110,7 +124,7 @@
 
 
     <ngb-tab>
-      <ng-template ngbTabTitle><span class="biglinks">Åpningstider <i class="fas fa-clock fdv-2"></i></span></ng-template>
+      <ng-template ngbTabTitle><span class="biglinks"><span class="d-none d-md-inline">Åpningstider </span> <i class="fas fa-clock fdv-2"></i></span></ng-template>
       <ng-template ngbTabContent>
         <table class="table table-hover table-striped">
           <thead class="thead-inverse|thead-default">
@@ -162,7 +176,7 @@
     </ngb-tab>
 
     <ngb-tab *ngIf="google && google.photos">
-      <ng-template ngbTabTitle><span class="biglinks">Bilder <i class="fas fa-image fdv-2"></i></span></ng-template>
+      <ng-template ngbTabTitle><span class="biglinks"><span class="d-none d-sm-inline">Bilder </span> <i class="fas fa-image fdv-2"></i></span></ng-template>
       <ng-template ngbTabContent>
         <div *ngIf="google.photos">
           <div class="row">

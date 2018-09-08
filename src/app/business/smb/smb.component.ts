@@ -2,7 +2,7 @@ import { AuthService } from './../../auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
-import {DomSanitizationService, DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-smb',

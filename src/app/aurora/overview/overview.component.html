@@ -1,115 +1,50 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>Aurora forecast</h1>
-      <button class="btn btn-outline-success" (click)="updateKindex()" [disabled]="upBtn">update</button>
-
+      <span class="encode bigtext biglinks">Nordlysaktivitet</span>
+      <hr class="pb-0 mb-0 pt-1 mt-1">
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" *ngIf="kpIndexNow">
     <div class="col-12 text-center">
+        <span class="biglinks h5 bt">
+            {{findato(now)}}
+          </span>
+          <br>      
       <span class="kIndex-0"> low </span>
-      <span *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]; let i = index">
-        <span class="kIndex-{{number}}">
+      <span *ngFor="let number of [1,2,3,4,5,6,7,8]; let i = index">
+        <span [ngClass]="{'h1': (number==kpIndexNow)}" class="kIndex-{{number}}">
           {{ number }}
         </span>
       </span>
       <span class="kIndex-8"> high </span>
-
     </div>
+    <img src="http://auroraforecast.gi.alaska.edu/images/Europe_{{kpIndexNow}}.png" class="mx-auto">
   </div>
 
 
+  <div class="row pt-3" *ngIf="forecast">
 
-
-  <div class="row">
-
-    <div class="col-4">
-      <div *ngIf="noaaKindex">
-        <h3>KP-index</h3>
-
-        <!-- 
-      
-              <div *ngFor="let kIndex of noaaKindex">
-                {{ kIndex }}
-              </div> -->
-
-        <div *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]; let i = index">
-          <span [ngClass]="{'bt': pi(noaaKindex[noaaKindex.length-number][1]) >= 4}">
-            <span class="kIndex-{{pi(noaaKindex[noaaKindex.length-number][1])}}">
-              {{ pi(noaaKindex[noaaKindex.length-number][1]) }} </span>
-            ({{ noaaKindex[noaaKindex.length-number][0] | date }}
-            <i class="fas fa-clock text-muted"></i> {{noaaKindex[noaaKindex.length-number][0] | date:'HH:mm' }})
-            <span *ngIf="i===0">
-              <hr>
-            </span>
-            <span *ngIf="i>0">
-              <br>
-            </span>
+    <div *ngFor="let day of forecast; let index = index;" class="col-lg-2 col-xl-2 col-sm-12 col-md-6 col-xs-12">
+      <span class="biglinks bt">
+      {{findato(day.dato)}}
+    </span>
+      <div *ngFor="let hour of day" class="row">
+        <div class="col-5">
+          {{ kl(hour[0]) }}
+        </div>
+        <div class="col-5">
+            <span class="kIndex-{{pi(hour[1])}}" [ngClass]="{'bt': (pi(hour[1])>=4)}">
+          {{ hour[1] }}
           </span>
         </div>
-
       </div>
-    </div>
 
-
-    <div class="col-4">
-      <div *ngIf="noaaKindexMinute">
-        <h3>Real time KP-index</h3>
-
-        <!-- 
-      
-              <div *ngFor="let kIndex of noaaKindex">
-                {{ kIndex }}
-              </div> -->
-
-        <div *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]; let i = index">
-          <span class="bt kIndex-{{pi(noaaKindexMinute[noaaKindexMinute.length-number][2])}}">{{ pi(noaaKindexMinute[noaaKindexMinute.length-number][2]) }} </span>
-          ({{ noaaKindexMinute[noaaKindexMinute.length-number][0] | date }}
-          <i class="fas fa-clock text-muted"></i> {{noaaKindexMinute[noaaKindexMinute.length-number][0] | date:'HH:mm' }}) 
-          (<span class="text-muted">{{noaaKindexMinute[noaaKindexMinute.length-number][1]}}</span>)
-          <span *ngIf="i===0">
-            <hr>
-          </span>
-          <span *ngIf="i>0">
-            <br>
-          </span>
-
-        </div>
-
-      </div>
-    </div>
-
-
-    <div class="col-4">
-      <div *ngIf="noaaKindexForecast">
-        <h3>Forecast</h3>
-
-        <!-- 
-        
-                <div *ngFor="let kIndex of noaaKindexForecast">
-                  {{ kIndex }}
-                </div> -->
-
-        <div *ngFor="let number of [52,51,50,49,48,47,46,45,44,43]; let i = index">
-          <span [ngClass]="{'bt': pi(noaaKindexForecast[noaaKindexForecast.length-number][1]) >= 4}">
-            <span class="kIndex-{{pi(noaaKindexForecast[noaaKindexForecast.length-number][1])}}">{{ pi(noaaKindexForecast[noaaKindexForecast.length-number][1]) }} </span>
-            ({{ noaaKindexForecast[noaaKindexForecast.length-number][0] | date }}
-            <i class="fas fa-clock text-muted"></i> {{noaaKindexForecast[noaaKindexForecast.length-number][0] | date:'HH:mm' }}) {{ noaaKindexForecast[noaaKindexForecast.length-number][2]
-            }}
-            <span *ngIf="i===0">
-              <hr>
-            </span>
-            <span *ngIf="i>0">
-              <br>
-            </span>
-          </span>
-        </div>
-
-      </div>
     </div>
 
 
   </div>
+<br>
+Basert på data fra <a href="https://www.swpc.noaa.gov/products/aurora-30-minute-forecast" target="_blank" class="biglinks">NOAA</a>.
 </div>

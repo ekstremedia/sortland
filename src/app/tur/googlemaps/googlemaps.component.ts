@@ -34,9 +34,6 @@ export class GooglemapsComponent implements OnInit {
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     // this.tmplatitude = this.map.location.lat;
     this.setMolster();
-
-
-
   // this.setMarker();
 
 

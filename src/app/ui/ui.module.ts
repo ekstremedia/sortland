@@ -1,6 +1,6 @@
+import { BisscatComponent } from './../business/bisscat/bisscat.component';
 import { BisstypesComponent } from './../business/bisstypes/bisstypes.component';
 import { AddbissComponent } from './../business/addbiss/addbiss.component';
-import { AddbusinessComponent } from './../business/addbusiness/addbusiness.component';
 import { BusinessComponent } from './../business/business/business.component';
 import { BlogpostsComponent } from './../blog/blogposts/blogposts.component';
 import { AllComponent } from './../videos/all/all.component';
@@ -25,6 +25,7 @@ import { AllbusinessesComponent } from '../business/allbusinesses/allbusinesses.
 import { YoutubePlayerService } from 'ngx-youtube-player/src/ngx-youtube-player';
 import { LoginComponent } from '../user/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TerjeComponent } from '../terje/terje.component';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -45,7 +46,9 @@ const appRoutes: Routes = [
   { path: 'bedrift/:slug', component: BusinessComponent },
   { path: 'leggtil/bedrift', component: AddbissComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'bedrifter/:id', component: BisstypesComponent }
+  { path: 'bedrifter/:id', component: BisstypesComponent },
+  { path: 'kategori/:id', component: BisscatComponent },
+  { path: 'terje', component: TerjeComponent }
 
 ];
 

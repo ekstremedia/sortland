@@ -1,15 +1,59 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">Alle bedrifter: </div>
-    <div *ngIf="alleBedrifter">
-      <div *ngFor="let business of alleBedrifter">
-        <a routerLink="/bedrift/{{business.slug}}">{{ business.title }}</a>
-
-        <span *ngIf="business.business_logo && business.business_logo[0]">
-          <img [src]="business.business_logo[0].path" width="20">
-        </span>
-        <br>
+<div class="container" *ngIf="alleBedrifter">
+  <div class="row pt-3 mt-3 ">
+    <div class="col-8 h4 ">
+      <div *ngIf="sok.length<1">
+        <span class="biglinks">{{alleBedrifter.length}}</span> bedrifter
+      </div>
+      <div *ngIf="sok.length>0">
+        <div *ngIf="treff(sok).length<1">
+          Ingen treff på <span class="biglinks">{{sok}} </span>
+        </div>
+        <div *ngIf="treff(sok).length>0">
+          <span class="biglinks">{{treff(sok).length}}</span> treff på <span class="biglinks">{{sok}} </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-1 h4 ">Søk: </div>
+    <div class="col">
+      <div class="form-group">
+        <input type="text" class="form-control  w-100" name="sok" id="sok" aria-describedby="sok" placeholder=""
+          [(ngModel)]="sok">
       </div>
     </div>
   </div>
+  <div class="row ">
+    <div class="col-12">
+      <div *ngIf="sok.length<1">
+        <span *ngFor="let business of alleBedrifter; let last = last;">
+          <a routerLink="/bedrift/{{business.slug}}" class="biglinkssmall" [ngClass]="{'openo': (openNo(business))}">{{ business.title }}</a><span *ngIf="!last">,
+          </span>
+          <span *ngIf="last">. </span>
+        </span>
+      </div>
+      <div *ngIf="sok.length>0">
+        <span *ngIf="treff(sok).length>1">
+          <div class="row" *ngFor="let business of treff(sok); let last = last;">
+            <div class="col-1 mx-auto text-center">
+              <img *ngIf="business.business_logo && business.business_logo[0]" [src]="business.business_logo[0].path"
+                class="img-fluid" style="max-height: 30px;">
+            </div>
+            <div class="col-11">
+              <h3>
+                <a routerLink="/bedrift/{{business.slug}}" class="biglinkssmall" [ngClass]="{'openo': (openNo(business))}">{{ business.title }}</a>
+              </h3>
+            </div>
+
+
+          </div>
+        </span>
+        <span *ngIf="treff(sok).length===1">
+          <app-smb [business]="treff(sok)[0]"></app-smb>
+        </span>
+      </div>
+    </div>
+
+  </div>
 </div>
+<!-- <span *ngIf="business.business_logo && business.business_logo[0]">
+            <img [src]="business.business_logo[0].path" width="20">
+          </span> -->

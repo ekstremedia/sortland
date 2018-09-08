@@ -208,6 +208,17 @@ getBusinessTypes(id) {
     data => data
   );
 }
+getBusinessCategories(id) {
+  let seturl = null;
+  if (environment.production === false) {
+    seturl = 'http://localhost:81/sortland/api/allBusinessCategories/'+id;
+  } else {
+    seturl = 'api/allBusinessCategories/'+id;
+  }
+  return this.http.get(seturl).pipe(
+    data => data
+  );
+}
 
 getBusiness(slug) {
   let seturl = null;
@@ -262,8 +273,137 @@ slugify (text) {
 
 /// BEDRIFTER END
 
+
+/// DATOAR START
+
+openNo(business) {
+const now = new Date();
+// const now = new Date('2018-09-08 22:30:00');
+
+  // d = d.toString().replace(/-/g, '/');
+  let ut = false;
+  const dayNr = now.getDay();
+    let tmpDateStartTime;
+    let tmpDateEndTime;
+    if (business['sun_open'] && business['sun_open']==='00:00:00') {
+      ut = true;
+    } else {
+      if (dayNr === 1) {
+        if (business['mon_open']) {
+          tmpDateStartTime = business['mon_open'];
+          tmpDateEndTime = business['mon_closed'];
+        }
+      }
+      if (dayNr === 2) {
+        if (business['tue_open']) {
+          tmpDateStartTime = business['tue_open'];
+          tmpDateEndTime = business['tue_closed'];
+        }
+      }
+      if (dayNr === 3) {
+        if (business['wed_open']) {
+          tmpDateStartTime = business['wed_open'];
+          tmpDateEndTime = business['wed_closed'];
+        }
+      }
+      if (dayNr === 4) {
+        if (business['thu_open']) {
+          tmpDateStartTime = business['thu_open'];
+          tmpDateEndTime = business['thu_closed'];
+        }
+      }
+      if (dayNr === 5) {
+        if (business['fri_open']) {
+          tmpDateStartTime = business['fri_open'];
+          tmpDateEndTime = business['fri_closed'];
+        }
+      }
+      if (dayNr === 6) {
+        if (business['sat_open']) {
+          tmpDateStartTime = business['sat_open'];
+          tmpDateEndTime = business['sat_closed'];
+        }
+      }
+      if (dayNr === 0) {
+        if (business['sun_open']) {
+          tmpDateStartTime = business['sun_open'];
+          tmpDateEndTime = business['sun_closed'];
+        }
+      }
+      if (tmpDateStartTime) {
+        const year = this.dateYear(now);
+        const month = (this.dateMonth(now)+1);
+        const monthut = (month < 10 ? '0' : '') + month;
+        const day = now.getDate();
+        const dayout = (day < 10 ? '0' : '') + day;
+        const thisDate = year+'-'+monthut+'-'+dayout;
+        const openDate = new Date (thisDate + ' ' + tmpDateStartTime);
+        const closedDate = new Date (thisDate + ' ' + tmpDateEndTime);
+        // tslint:disable-next-line:radix
+        const closedDateNCcheck = parseInt(tmpDateEndTime.substring(0,2));
+        if (closedDateNCcheck>=6) {
+          // console.log(closedDateNCcheck,openDate,closedDate);
+          if (now >= openDate && now <= closedDate) {
+            ut = true;
+          } else {
+            ut = false;
+          }
+        }
+    }
+  }
+  return ut;
+}
+
+
+dateMonth(d) {
+  // Copy date so don't modify original
+  const du = new Date(d.toString().replace(/-/g, '/'));
+  return du.getMonth();
+}
+dateYear(d) {
+  // Copy date so don't modify original
+  // d.replace(/-/g, '/');
+  const du = new Date(d.toString().replace(/-/g, '/'));
+  return du.getFullYear();
+}
+dateWeek(d) {
+  // console.log(d);
+    // Copy date so don't modify original
+    d = new Date(d.toString().replace(/-/g, '/'));
+    // Set to nearest Thursday: current date + 4 - current day number
+    // Make Sunday's day number 7
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+    // Get first day of year
+    const yearStart = +new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    // Calculate full weeks to nearest Thursday
+    const weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+    // Return array of year and week number
+    return weekNo;
+}
+dateDay(d) {
+  d = d.toString().replace(/-/g, '/');
+  const du = new Date(d);
+  const day = du.getDate();
+  return day;
+}
+
+dagLink(d) {
+  d = d.toString().replace(/-/g, '/');
+  const year = this.dateYear(d);
+  const month = (this.dateMonth(d)+1);
+  const monthut = (month < 10 ? '0' : '') + month;
+  const day = this.dateDay(d);
+  const dayout = (day < 10 ? '0' : '') + day;
+  return year+'-'+monthut+'-'+dayout;
+}
+
+
+/// DATOAR SLUTT
+
+
+
 v() {
-  return '0.4';
+  return '0.5';
 }
 
 }

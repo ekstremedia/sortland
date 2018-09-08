@@ -1,0 +1,30 @@
+<div class="container" *ngIf="kategori">
+    <div class="row">
+      <div class="col-12 mt-3">
+        <h2 class="encode"> <span class="biglinks cp cap">{{kategori.title }} </span> <small>({{kategori['business'].length}})</small> på Sortland: </h2>
+      </div>
+    </div>
+    <div class="row">
+
+
+      <div class="col-12 card-columns">
+        <div *ngFor="let business of kategori['business']" class="">
+          <div class="card">
+            <a routerLink="/bedrift/{{business.slug}}">
+              <img *ngIf="business.business_logo && business.business_logo[0]" class="card-img-top p-2" [src]="business.business_logo[0].path"
+                alt="business.title">
+                <div *ngIf="!business.business_logo || !business.business_logo[0]" class="p-3 text-muted text-center">
+                  Mangler bilde
+                </div>
+            </a>
+            <div class="card-body pb-0 mb-0  text-center">
+              <a routerLink="/bedrift/{{business.slug}}" class="h5 biglinks" [ngClass]="{'openo': (openNo(business))}"> 
+                <span class="card-title">{{business.title}}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

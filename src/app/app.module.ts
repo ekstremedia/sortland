@@ -1,3 +1,4 @@
+import { BisscatComponent } from './business/bisscat/bisscat.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -37,6 +38,7 @@ import { LoginComponent } from './user/login/login.component';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { BisstypesComponent } from './business/bisstypes/bisstypes.component';
+import { TerjeComponent } from './terje/terje.component';
 
 // from https://angular.io/guide/router
 
@@ -65,7 +67,9 @@ import { BisstypesComponent } from './business/bisstypes/bisstypes.component';
     AddbusinessComponent,
     AddbissComponent,
     LoginComponent,
-    BisstypesComponent
+    BisstypesComponent,
+    BisscatComponent,
+    TerjeComponent
   ],
   imports: [
     NgbModule,
