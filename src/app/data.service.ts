@@ -21,6 +21,20 @@ export class DataService {
   }
 
 
+  // NAV START
+  getStillinger() {
+      let seturl = null;
+      if (environment.production === false) {
+        seturl = 'http://localhost:81/sortland/api/getStillinger';
+      } else {
+        seturl = 'api/getStillinger';
+      }
+      return this.http.get(seturl).pipe(
+        data => data
+      );
+    }
+  
+  // NAV END
 
   // YOUTUBE START
 
@@ -337,8 +351,8 @@ const now = new Date();
         const day = now.getDate();
         const dayout = (day < 10 ? '0' : '') + day;
         const thisDate = year+'-'+monthut+'-'+dayout;
-        const openDate = new Date (thisDate + ' ' + tmpDateStartTime);
-        const closedDate = new Date (thisDate + ' ' + tmpDateEndTime);
+        const openDate = new Date (thisDate.replace(/-/g, '/') + ' ' + tmpDateStartTime);
+        const closedDate = new Date (thisDate.replace(/-/g, '/') + ' ' + tmpDateEndTime);
         // tslint:disable-next-line:radix
         const closedDateNCcheck = parseInt(tmpDateEndTime.substring(0,2));
         if (closedDateNCcheck>=6) {

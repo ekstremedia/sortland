@@ -39,6 +39,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { BisstypesComponent } from './business/bisstypes/bisstypes.component';
 import { TerjeComponent } from './terje/terje.component';
+import { LedigestillingerComponent } from './tjenester/ledigestillinger/ledigestillinger.component';
 
 // from https://angular.io/guide/router
 
@@ -69,7 +70,8 @@ import { TerjeComponent } from './terje/terje.component';
     LoginComponent,
     BisstypesComponent,
     BisscatComponent,
-    TerjeComponent
+    TerjeComponent,
+    LedigestillingerComponent
   ],
   imports: [
     NgbModule,

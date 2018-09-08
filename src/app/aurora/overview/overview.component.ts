@@ -78,15 +78,18 @@ export class OverviewComponent implements OnInit, OnDestroy {
     for(const tid of data) {
       i++;
       if (i > 1) {
-          tmpDate = new Date(tid[0]);
+          tmpDate = new Date(tid[0].replace(/-/g, '/'));
           if (tmpDate > now) {
-            if (tid[0].substring(0,10) === gammeltid) {
-              tmpArray['dato'] = tid[0].substring(0,10);
-
+            let t1 = tid[0].substring(0,10);
+            let t2 = gammeltid+'';
+            // console.log('t1',t1.replace(/-/g, '/'))
+            // console.log('t2',t2.replace(/-/g, '/'))
+            if (t1 === t2) {
+              tmpArray['dato'] = tid[0].substring(0,10).replace(/-/g, '/');
               tmpArray.push(tid);
             }
           if (tid[0].substring(0,10) !== gammeltid) {
-            if (tmpArray.length>0) {
+            if (tmpArray.length>0 && tmpArray['dato']) {
               array.push(tmpArray);
             }
               tmpArray = [];

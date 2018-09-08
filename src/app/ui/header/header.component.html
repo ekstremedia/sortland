@@ -17,6 +17,10 @@
         <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/bedrift/fdvhuset-as">FDVhuset <img src='/assets/fdv32.png'></a>
         <!-- <i class="fdv-1 fas fa-check fa-rotate-270 "></i> -->
       </li>
+      <li class="nav-item" [ngClass]="{active: this.router.url==='/tjenester/stillinger'}">
+        <a class="nav-item nav-link" (click)="collapseNav()" routerLink="/tjenester/stillinger">Stillinger <i class="fas fa-briefcase fdv-3"></i></a>
+        <!-- <i class="fdv-1 fas fa-check fa-rotate-270 "></i> -->
+      </li>
 
 
       <!-- <li class="nav-item" [ngClass]="{active: this.router.url==='/blog'}">

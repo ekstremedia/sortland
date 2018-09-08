@@ -1,3 +1,4 @@
+import { LedigestillingerComponent } from './../tjenester/ledigestillinger/ledigestillinger.component';
 import { BisscatComponent } from './../business/bisscat/bisscat.component';
 import { BisstypesComponent } from './../business/bisstypes/bisstypes.component';
 import { AddbissComponent } from './../business/addbiss/addbiss.component';
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'bedrifter/:id', component: BisstypesComponent },
   { path: 'kategori/:id', component: BisscatComponent },
-  { path: 'terje', component: TerjeComponent }
+  { path: 'terje', component: TerjeComponent },
+  { path: 'tjenester/stillinger', component: LedigestillingerComponent }
 
 ];
 

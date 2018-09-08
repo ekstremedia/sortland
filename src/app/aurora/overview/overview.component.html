@@ -8,35 +8,38 @@
 
   <div class="row" *ngIf="kpIndexNow">
     <div class="col-12 text-center">
-        <span class="biglinks h5 bt">
-            {{findato(now)}}
-          </span>
-          <br>      
+      <span class="biglinks h5 bt">
+        {{findato(now)}}
+      </span>
+      <br>
       <span class="kIndex-0"> low </span>
-      <span *ngFor="let number of [1,2,3,4,5,6,7,8]; let i = index">
+      <span *ngFor="let number of [0,1,2,3,4,5,6,7,8]; let i = index">
         <span [ngClass]="{'h1': (number==kpIndexNow)}" class="kIndex-{{number}}">
           {{ number }}
         </span>
       </span>
       <span class="kIndex-8"> high </span>
     </div>
-    <img src="http://auroraforecast.gi.alaska.edu/images/Europe_{{kpIndexNow}}.png" class="mx-auto">
   </div>
-
+  <div class="row">
+    <div class="col-12 mx-auto text-center">
+      <img src="http://auroraforecast.gi.alaska.edu/images/Europe_{{kpIndexNow}}.png" class="mx-auto img-fluid">
+    </div>
+  </div>
 
   <div class="row pt-3" *ngIf="forecast">
 
     <div *ngFor="let day of forecast; let index = index;" class="col-lg-2 col-xl-2 col-sm-12 col-md-6 col-xs-12">
       <span class="biglinks bt">
-      {{findato(day.dato)}}
-    </span>
+        {{findato(day.dato)}}
+      </span>
       <div *ngFor="let hour of day" class="row">
         <div class="col-5">
           {{ kl(hour[0]) }}
         </div>
         <div class="col-5">
-            <span class="kIndex-{{pi(hour[1])}}" [ngClass]="{'bt': (pi(hour[1])>=4)}">
-          {{ hour[1] }}
+          <span class="kIndex-{{pi(hour[1])}}" [ngClass]="{'bt': (pi(hour[1])>=4)}">
+            {{ hour[1] }}
           </span>
         </div>
       </div>
@@ -45,6 +48,6 @@
 
 
   </div>
-<br>
-Basert på data fra <a href="https://www.swpc.noaa.gov/products/aurora-30-minute-forecast" target="_blank" class="biglinks">NOAA</a>.
+  <br>
+  Basert på data fra <a href="https://www.swpc.noaa.gov/products/aurora-30-minute-forecast" target="_blank" class="biglinks">NOAA</a>.
 </div>
