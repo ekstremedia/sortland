@@ -1,3 +1,6 @@
+import { SoknadComponent } from './../soknad/soknad.component';
+import { BildeComponent } from './../pages/bilde/bilde.component';
+import { BilderComponent } from './../pages/bilder/bilder.component';
 import { LedigestillingerComponent } from './../tjenester/ledigestillinger/ledigestillinger.component';
 import { BisscatComponent } from './../business/bisscat/bisscat.component';
 import { BisstypesComponent } from './../business/bisstypes/bisstypes.component';
@@ -27,9 +30,10 @@ import { YoutubePlayerService } from 'ngx-youtube-player/src/ngx-youtube-player'
 import { LoginComponent } from '../user/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TerjeComponent } from '../terje/terje.component';
+import { WebutviklingComponent } from '../webutvikling/webutvikling.component';
 
 const appRoutes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: '', component: AllbusinessesComponent },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'photos/galleries', component: GalleriesComponent },
@@ -50,7 +54,12 @@ const appRoutes: Routes = [
   { path: 'bedrifter/:id', component: BisstypesComponent },
   { path: 'kategori/:id', component: BisscatComponent },
   { path: 'terje', component: TerjeComponent },
-  { path: 'tjenester/stillinger', component: LedigestillingerComponent }
+  { path: 'tjenester/stillinger', component: LedigestillingerComponent },
+  { path: 'bilder', component: BilderComponent },
+  { path: 'bilde/:id', component: BildeComponent },
+  { path: 'soknad', component: SoknadComponent },
+  { path: 'søknad', component: SoknadComponent },
+  { path: 'webutvikling', component: WebutviklingComponent }
 
 ];
 

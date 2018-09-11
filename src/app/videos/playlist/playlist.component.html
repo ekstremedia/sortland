@@ -8,17 +8,19 @@
       <hr class="mt-1 mb-2">
     </div>
   </div>
-  <div class="row " *ngIf="videos">
-    <div class="col-xl-12 col-lg-10 col-md-10  col-sm-12 col-xs-12 mx-auto">
-      <ngx-masonry [useImagesLoaded]="true" [options]="{fitWidth:'true'}">
-        <ngxMasonryItem class=" m-3 masonry-item-yt" *ngFor="let video of videos">
-          <a routerLink="/video/{{video.snippet.resourceId.videoId}}">
-            <img [src]="video.snippet.thumbnails.medium.url" [width]="video.snippet.thumbnails.medium.width" [height]="video.snippet.thumbnails.medium.height">
-            <h6>{{ video.snippet.title }}</h6>
-          </a>
-
-        </ngxMasonryItem>
-      </ngx-masonry>
+  <div class="row" *ngIf="videos">
+      <div class="col-12">
+        <div class="card-columns" [@listAnimation]="videos.length">
+          <div class="card" *ngFor=" let video of videos">
+              <a routerLink="/video/{{video.snippet.resourceId.videoId}}">
+                <img class="card-img-top" [src]="video.snippet.thumbnails.medium.url" [width]="video.snippet.thumbnails.medium.width"
+                [height]="video.snippet.thumbnails.medium.height">
+              <div class="card-body">
+                <h5 class="card-title">{{ video.snippet.title }}</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 </div>

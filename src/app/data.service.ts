@@ -10,7 +10,10 @@ import {
 })
 export class DataService {
   playlist_aurora = 'PL3E34C7679D9CD762';
-  constructor(private http: HttpClient, private api: ApiService) { }
+  page: number;
+  constructor(private http: HttpClient, private api: ApiService) { 
+   
+  }
 
  origin = '&origin=http://localhost:4200';
 
@@ -66,6 +69,19 @@ export class DataService {
 
 
   /// FLICKR START
+
+  pageSet(page) {
+    console.log('set page: ',page);
+    this.page = page;
+  }
+
+  pageGet() {
+    console.log(this.page);
+    if (this.page === undefined) { this.page = 1; }
+    if (isNaN(this.page)) { this.page = 1; }
+    return this.page;
+  }
+
   getFlickrFeed() {
     const extras = '&extras=url_o,views,machine_tags,geo';
     const url = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json'
@@ -138,6 +154,14 @@ export class DataService {
   flickrSearch(searchText) {
     // const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key='+this.api.getFlickrApi()+'&photoset_id='+ setId +'&user_id=93161966%40N04&extras=url_o%2Curl_s%2Curl_sq%2Cdate_taken&format=json&nojsoncallback=1&auth_token=72157693865132550-c00dad37f918e68d&api_sig=ad5e9913499c842c36d8b7ad3e5f81eb';
     const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + this.api.getFlickrApi() + '&user_id=93161966%40N04&text=' + searchText + '&extras=url_o%2Curl_s%2Curl_sq%2Cdate_taken%2C+path_alias&format=json&nojsoncallback=1';
+    this.log('searchtext: ', searchText);
+    return this.http.get(seturl).pipe(
+      data => data
+    );
+  }
+  flickrSearchAll(searchText) {
+    // const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key='+this.api.getFlickrApi()+'&photoset_id='+ setId +'&user_id=93161966%40N04&extras=url_o%2Curl_s%2Curl_sq%2Cdate_taken&format=json&nojsoncallback=1&auth_token=72157693865132550-c00dad37f918e68d&api_sig=ad5e9913499c842c36d8b7ad3e5f81eb';
+    const seturl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + this.api.getFlickrApi() + '&text=' + searchText + '&per_page=16&page='+this.pageGet()+'&extras=url_o%2Curl_s%2Curl_sq%2Cdate_taken%2C+path_alias&format=json&nojsoncallback=1';
     this.log('searchtext: ', searchText);
     return this.http.get(seturl).pipe(
       data => data
@@ -354,7 +378,8 @@ const now = new Date();
         const openDate = new Date (thisDate.replace(/-/g, '/') + ' ' + tmpDateStartTime);
         const closedDate = new Date (thisDate.replace(/-/g, '/') + ' ' + tmpDateEndTime);
         // tslint:disable-next-line:radix
-        const closedDateNCcheck = parseInt(tmpDateEndTime.substring(0,2));
+        let closedDateNCcheck;
+        if (tmpDateEndTime) {  closedDateNCcheck = parseInt(tmpDateEndTime.substring(0,2)); }
         if (closedDateNCcheck>=6) {
           // console.log(closedDateNCcheck,openDate,closedDate);
           if (now >= openDate && now <= closedDate) {
@@ -417,7 +442,7 @@ dagLink(d) {
 
 
 v() {
-  return '0.5';
+  return '0.6';
 }
 
 }

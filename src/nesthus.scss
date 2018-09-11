@@ -271,15 +271,18 @@ $kG8: #58FF00;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  overflow: auto;
+
 }
 
 .app-bg {
   background-image: url("/assets/melbu.jpg");
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
+  // background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  overflow: auto;
 }
 
 .cp {
@@ -404,3 +407,38 @@ $fdv-3: #a4a5a7;
   .cap {
     text-transform: capitalize;
   }
+  footer {
+    padding: 20px;
+  }
+  .text-purple {
+    color: purple;
+  }
+  .tnhr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 1em 0;
+      padding: 0; 
+      opacity: 0;
+  }
+  .tnhr2 {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
+}
+.finskrift {
+  font-family: 'Montez';
+}
+.text-pink {
+  color: hotpink;
+}
+.text-nav {
+  color: rgb(165, 27, 27);
+}
+.cauc {
+  color: #ffe0bd;
+}

@@ -40,6 +40,10 @@ import { HttpModule } from '@angular/http';
 import { BisstypesComponent } from './business/bisstypes/bisstypes.component';
 import { TerjeComponent } from './terje/terje.component';
 import { LedigestillingerComponent } from './tjenester/ledigestillinger/ledigestillinger.component';
+import { BilderComponent } from './pages/bilder/bilder.component';
+import { BildeComponent } from './pages/bilde/bilde.component';
+import { SoknadComponent } from './soknad/soknad.component';
+import { WebutviklingComponent } from './webutvikling/webutvikling.component';
 
 // from https://angular.io/guide/router
 
@@ -71,7 +75,11 @@ import { LedigestillingerComponent } from './tjenester/ledigestillinger/ledigest
     BisstypesComponent,
     BisscatComponent,
     TerjeComponent,
-    LedigestillingerComponent
+    LedigestillingerComponent,
+    BilderComponent,
+    BildeComponent,
+    SoknadComponent,
+    WebutviklingComponent
   ],
   imports: [
     NgbModule,

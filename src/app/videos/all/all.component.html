@@ -8,19 +8,34 @@
       <hr class="mt-1 mb-2">
     </div>
   </div>
-  <div class="row " *ngIf="videos">
-    <div class="col-xl-12 col-lg-10 col-md-10  col-sm-12 col-xs-12 mx-auto">
-      <ngx-masonry>
-        <ngxMasonryItem class=" m-3 masonry-item-yt" *ngFor="let video of videos">
-
-
+  <div class="row" *ngIf="videos">
+    <div class="col-12">
+      <div class="card-columns" [@listAnimation]="videos.length">
+        <div class="card" *ngFor=" let video of videos">
           <a routerLink="/video/{{video.id.videoId}}">
-            <img [src]="video.snippet.thumbnails.medium.url" [width]="video.snippet.thumbnails.medium.width" [height]="video.snippet.thumbnails.medium.height">
-            <h6>{{ video.snippet.title }}</h6>
+            <img class="card-img-top" [src]="video.snippet.thumbnails.medium.url" [width]="video.snippet.thumbnails.medium.width" [height]="video.snippet.thumbnails.medium.height">
+            <div class="card-body">
+                <h5 class="card-title">{{ video.snippet.title }}</h5>
+              </div>            
           </a>
-
-        </ngxMasonryItem>
-      </ngx-masonry>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- 
+
+  <div class="row" *ngIf="set && set.photos">
+      <div class="col-12">
+        <div  class="card-columns" [@listAnimation]="set.photos.length">
+          <div class="card" *ngFor="let image of set.photos.photo">
+            <a class="sec-links" routerLink="/bilde/{{image.id}}">
+              <img [src]="image.url_s" [alt]="image.title" [title]="image.title" class="card-img-top">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+ -->
+
 </div>

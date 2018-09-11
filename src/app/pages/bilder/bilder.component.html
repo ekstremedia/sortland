@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12  text-center">
+      <h3 *ngIf="!set" class="text-muted">
+        Laster bilder fra flickr <i class="fas fa-spinner fa-spin loading-color"></i>
+      </h3>
+      <h3 *ngIf="set">
+        Bilder på flickr fra Sortland
+      </h3>
+      <hr class="mt-1 mb-2">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <ngb-pagination size="sm" *ngIf="collectionSize" class="d-flex justify-content-center" [maxSize]="6" (pageChange)="onPager($event)"
+        [collectionSize]="collectionSize" [(page)]="pageNumber" aria-label="Default pagination" [boundaryLinks]="false"></ngb-pagination>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="set && set.photos">
+    <div class="col-12">
+      <div  class="card-columns" [@listAnimation]="set.photos.length">
+        <div class="card" *ngFor="let image of set.photos.photo">
+          <a class="sec-links" routerLink="/bilde/{{image.id}}">
+            <img [src]="image.url_s" [alt]="image.title" [title]="image.title" class="card-img-top">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-12">
+        <ngb-pagination size="sm" *ngIf="collectionSize" class="d-flex justify-content-center" [maxSize]="6" (pageChange)="onPager($event)"
+          [collectionSize]="collectionSize" [(page)]="pageNumber" aria-label="Default pagination" [boundaryLinks]="false"></ngb-pagination>
+      </div>
+    </div>
+
+    
+</div>

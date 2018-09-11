@@ -9,8 +9,7 @@
 
   </div>
 
-  <a class="biglinks" href="/sortland/backend/ekstremedia/nesthus/business/update/{{business.id}}" *ngIf="authService.isLoggedIn()"
-    target="_blank" placement="top" ngbTooltip="Rediger bedrift. Åpnes i nytt vindu.">Rediger</a>
+
 
   <ngb-tabset>
 
@@ -20,14 +19,19 @@
       <ng-template ngbTabContent>
         <div class="row">
           <div class="col-xl-7 col-lg-7 col-sm-7 col-xs-12 col-sm-12">
-
-              <div class="row pt-1 pl-3">
-                  <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Åpen nå</div>
-                  <div class="col-9">
-                    <div *ngIf="this.data.openNo(business)" class="openo">Ja</div>
-                    <div *ngIf="!this.data.openNo(business)">Nei</div>
-                  </div>
-                </div>            
+            <div class="row pt-1 pl-3" *ngIf="authService.isLoggedIn()">
+                <div class="col">
+                <a class="biglinks text-warning" href="/sortland/backend/ekstremedia/nesthus/business/update/{{business.id}}" target="_blank"
+                  placement="top" ngbTooltip="Rediger bedrift. Åpnes i nytt vindu.">Rediger denne bedriften</a>
+              </div>
+            </div>
+            <div class="row pt-1 pl-3">
+              <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Åpen nå</div>
+              <div class="col-9">
+                <div *ngIf="this.data.openNo(business)" class="openo">Ja</div>
+                <div *ngIf="!this.data.openNo(business)">Nei</div>
+              </div>
+            </div>
 
             <div class="row pt-1 pl-3" *ngIf="business.businesscategory && business.businesscategory[0]">
               <div class=" col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12 infotittel">Kategori</div>

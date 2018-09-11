@@ -5,21 +5,22 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-5">
       <hr>
       <div *ngFor="let stilling of stillinger; let index = index;">
         <span (click)="setStilling(stilling)" class=" cp biglinks">
-            <span class="fa-stack ">
-                <i class="fas fa-circle fa-stack-1x text-danger"></i>
-                <i class="fa-stack-1x fa-inverse">..</i>
-              </span>
-          {{ stilling.title }}</span>
+          <span class="fa-stack ">
+            <i class="fas fa-circle fa-stack-1x text-danger"></i>
+            <i class="fa-stack-1x fa-inverse">..</i>
+          </span>
+          {{ stilling.title }}
+        </span>
         <br>
 
       </div>
     </div>
-    <div class="col-6">
-      <div [innerHTML]="stillingen"></div>
+    <div class="col-7">
+      <div [innerHTML]="stillingen" *ngIf="stillingen"></div>
     </div>
   </div>
 </div>

@@ -1,11 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  query,
+  stagger
+} from '@angular/animations';
 
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
-  styleUrls: ['./playlist.component.css']
+  styleUrls: ['./playlist.component.css'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [ // each time the binding value changes
+
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(20, [
+            animate('0.2s', style({ opacity: 1 }))
+          ])
+        ])
+      ])
+    ])
+  ]
 })
 export class PlaylistComponent implements OnInit {
   videos: any;

@@ -1,27 +1,108 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="bigtext biglinks">Terje Nesthus</div>
+      <div class="bigtext biglinks" id="terje">Terje Nesthus</div>
     </div>
   </div>
-  <hr>
+  <div class="tnhr" id="hr1"></div>
 
-  <div class="row text-center">
-    <div class="col-4 h5">
+  <div class="row text-center" id="om">
+    <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12 col-xs-12 h5">
       <a href="tel:+4748216310" class="biglinks">
         +47 48216310
       </a>
     </div>
-    <div class="col-4 h5">
+    <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12 col-xs-12 h5">
       <a href="mailto:terje@nesthus.no" class="biglinks">
         terje@nesthus.no
       </a>
     </div>
-    <div class="col-4 h5">
+    <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12 col-xs-12 h5">
       <span class="biglinks">
         Osavegen 28, 5700 Voss
       </span>
     </div>
   </div>
-  <hr>
+  <div class="tnhr" id="hr2"></div>
+  <div class="row">
+    <div class="col-lg-7 col-xl-7 col-md-12 col-sm-12 col-xs-12">
+      <div class="ommeg">
+        36 år gammel mann fra Voss, Hordaland. Ønsker å flytte til Nord-Norge og få jobbet med webutvikling eller
+        lignende. Singel, barnløs og arbeidsledig.</div>
+      <br>
+      <div class="ommeg">Har ingen relevant utdanning eller jobberfaring med webutvikling, men har med årene lært meg å
+        bruke mange
+        forskjellige teknologier og rammeverk. Føler meg ganske stødig på følgende: HTML, PHP, MySQL, CSS/Sass,
+        JavaScript/Typescript.</div>
+      <br>
+      <div class="ommeg">Når det gjelder rammeverk har jeg satt min elsk på, så er det disse: <br>
+        <a href="https://getbootstrap.com/" target="_blank" class="biglinks"><i class="fas fa-bold text-purple"></i>
+          Bootstrap</a>,
+        <a href="https://laravel.com/" target="_blank" class="biglinks"><i class="fab fa-laravel text-warning"></i>
+          Laravel</a>,
+        <a href="http://www.octobercms.com" target="_blank" class="biglinks"><i class="fas fa-leaf text-warning"></i>
+          OctoberCMS</a>,
+        <a href="https://angular.io/" target="_blank" class="biglinks"><i class="fab fa-angular text-danger"></i>
+          Angular</a> og <a href="https://greensock.com" target="_blank" class="biglinks"> GreenSock</a>.
+      </div>
+      <br>
+      <div class="ommeg">Denne siden er laget med alle disse rammeverkene.
+        Bakgrunnsbildet er av <a routerLink="/photo/25420827858" class="biglinks">Melbu</a>, jeg hadde ikke noen av Sortland og det var
+        det nærmeste jeg kom.
+      </div>
+      <br>
+      <div class="ommeg">Forutenom webutvikling er jeg også glad i å trene, gå turer og friluftsliv generellt, spiller
+        litt PC-spill,
+        veldig aktiv med både <a routerLink="/photos/set/72157658887224378" class="biglinks" >fotografi</a> og <a
+          routerLink="/videos/all" class="biglinks">video/timelapse</a>.
+        Glad i festival-liv og har vært frivillig medarbeider hos <a routerLink="/videos/playlist/vossajazz" class="biglinks">Vossa
+          Jazz</a> i over 11 år.</div>
+      <br>
+      <div id="controller">
+        <span (click)="reverse()" class="biglinks cp">Reverser</span> eller
+        <span (click)="spillav()" class="biglinks cp">spill på nytt</span>. <span (click)="hurtighet(0.1)" class="biglinks cp">Supersakte</span>,
+        <span (click)="hurtighet(0.5)" class="biglinks cp">saktefilm</span>, <span (click)="hurtighet(1)" class="biglinks cp">normal</span>
+        eller <span (click)="hurtighet(2)" class="biglinks cp">hurtig</span>.
+      </div>
+    </div>
+    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+      <div class="row p-2" id="bilder">
+        <div class="col-4">
+          <ng-template #t1 let-modal>
+            <div class="modal-body">
+              <img src="http://ekstremedia.no/sortland/img/t1.jpg" class="img-fluid">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Lukk</button>
+            </div>
+          </ng-template>
+          <img (click)="open(t1,'sm')" src="http://ekstremedia.no/sortland/img/t1.jpg" class="img-fluid rounded">
+        </div>
+        <div class="col-8">
+          <ng-template #t2 let-modal>
+            <div class="modal-body">
+              <img src="http://ekstremedia.no/sortland/img/t2.jpg" class="img-fluid">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Lukk</button>
+            </div>
+          </ng-template>
+          <img (click)="open(t3,'lg')" src="http://ekstremedia.no/sortland/img/t3.jpg" class="img-fluid rounded">
+        </div>
+
+        <div class="col-12">
+          <ng-template #t3 let-modal>
+            <div class="modal-body">
+              <img src="http://ekstremedia.no/sortland/img/t3.jpg" class="img-fluid pt-3">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Lukk</button>
+            </div>
+          </ng-template>
+          <img (click)="open(t2,'lg')" src="http://ekstremedia.no/sortland/img/t2.jpg" class="img-fluid rounded  pt-3">
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
